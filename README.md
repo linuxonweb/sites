@@ -24,8 +24,11 @@ boot take 74.71 seconds versus 4.69 seconds locally, despite matching actual
 cause and observer limitations are recorded in `worker-startup-evidence.md`.
 The derived build passes 10 unit and three workerd integration tests. Its lean
 local browser boot reaches the shell in 2.733 seconds with matching actual
-configuration and versioned worker requests; public performance acceptance is
-pending. The first candidate boot with intrusive worker hooks timed out, while
+configuration and versioned worker requests. Public version 5 subsequently
+observed the matched lean console shell at 3.486 seconds first and 2.693 seconds
+warm, versus version 4's 55.048 seconds in the matched lean comparison. These
+are individual console observations, not a Firefox speedup ratio. The first
+candidate boot with intrusive worker hooks timed out, while
 the subsequent no-hook control passed; preserve both reports.
 
 `worker-graph.mjs` derives `/_runtime_worker/<graph-sha256>/linux/dist/*` from
@@ -48,20 +51,22 @@ otherwise those tabs require a reload. Rollback restores the matching artifact.
 ## Pinned inputs and reproducible build
 
 `runtime-assets.mjs` records all 58 logical routes. `runtime-lock.json` pins the
-55 staging parts (151,376,903 bytes), each SHA-256/length, the original manifest
+55 staging parts (151,597,129 bytes), each SHA-256/length, the original manifest
 and build-report hashes, and parent source commit
-`f24b914113dee9132471298e5e3a97b2e69b2ceb`. Large guest binaries are external
+`c1665dcc4ab199a88f74854627043e8c5ca85f4a`. Large guest binaries are external
 locked build inputs, not silently copied from an unverified working tree.
 
 Required snapshot layout: `public/`, `generated/asset-manifest.mjs`, and
 `generated/build-report.json`. Preserve these exact inputs with release artifacts.
 The current local snapshot is
-`/mnt/p6/project/linux/.cache/runtime-graphics-20260926/sites-hybrid-input`.
+`/mnt/p6/build/firefox-ready-20260926/release-src/web/cloudflare`.
 Reconstruction from the parent checkout is acceptable only when every locked
 hash matches. Missing inputs require recovering those bytes; ordinary builds
 never repin or substitute newer files.
 
 ```sh
+export TMPDIR=/mnt/p6/build/firefox-ready-20260926/tmp
+export TMP="$TMPDIR" TEMP="$TMPDIR"
 npm test
 SITES_RUNTIME_INPUT=/path/to/reviewed-snapshot npm run build
 node --check dist/server/index.js
@@ -83,6 +88,18 @@ For a reviewed new release, freeze staging first, then run
 `node pin-runtime.mjs SNAPSHOT_DIRECTORY FULL_PARENT_COMMIT` and review/commit
 its manifest and lock. The current helper deliberately requires this release's
 known counts. Do not repin merely to bypass a hash mismatch.
+
+The current rootfs version is `ff1ea9fc6f62`. This release changes only the
+Firefox archive and boot manifest from the previous locked runtime: packed init
+uses the bounded Aurora readiness handshake instead of an unconditional
+ten-second sleep. The Firefox executable, kernel, plain image and worker graph
+inputs remain unchanged. Local matched fresh-profile launch-marker observations
+were 17.259 seconds before and 8.248 seconds after; neither is first paint and
+one pair is not a distribution. Real Firefox rendering, five guest-downloaded
+workload checksums, zero-image warm boots and update/reload file preservation
+passed. See the parent `docs/firefox-aurora-startup-20260926.md` for failures,
+recovery, artifact hashes and limitations. Public validation of this new rootfs
+is a separate release gate.
 
 ## Publication and limits
 
