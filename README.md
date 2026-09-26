@@ -51,21 +51,21 @@ otherwise those tabs require a reload. Rollback restores the matching artifact.
 ## Pinned inputs and reproducible build
 
 `runtime-assets.mjs` records all 58 logical routes. `runtime-lock.json` pins the
-55 staging parts (151,597,129 bytes), each SHA-256/length, the original manifest
+55 staging parts (151,490,553 bytes), each SHA-256/length, the original manifest
 and build-report hashes, and parent source commit
-`c1665dcc4ab199a88f74854627043e8c5ca85f4a`. Large guest binaries are external
+`ff27c995b55944080ff3722fcd8ebbb8169a27b8`. Large guest binaries are external
 locked build inputs, not silently copied from an unverified working tree.
 
 Required snapshot layout: `public/`, `generated/asset-manifest.mjs`, and
 `generated/build-report.json`. Preserve these exact inputs with release artifacts.
 The current local snapshot is
-`/mnt/p6/build/firefox-ready-20260926/release-src/web/cloudflare`.
+`/mnt/p6/build/firefox-homepage-20260926/release-src/web/cloudflare`.
 Reconstruction from the parent checkout is acceptable only when every locked
 hash matches. Missing inputs require recovering those bytes; ordinary builds
 never repin or substitute newer files.
 
 ```sh
-export TMPDIR=/mnt/p6/build/firefox-ready-20260926/tmp
+export TMPDIR=/mnt/p6/build/firefox-homepage-20260926/tmp
 export TMP="$TMPDIR" TEMP="$TMPDIR"
 npm test
 SITES_RUNTIME_INPUT=/path/to/reviewed-snapshot npm run build
@@ -89,17 +89,17 @@ For a reviewed new release, freeze staging first, then run
 its manifest and lock. The current helper deliberately requires this release's
 known counts. Do not repin merely to bypass a hash mismatch.
 
-The current rootfs version is `ff1ea9fc6f62`. This release changes only the
-Firefox archive and boot manifest from the previous locked runtime: packed init
-uses the bounded Aurora readiness handshake instead of an unconditional
-ten-second sleep. The Firefox executable, kernel, plain image and worker graph
-inputs remain unchanged. Local matched fresh-profile launch-marker observations
-were 17.259 seconds before and 8.248 seconds after; neither is first paint and
-one pair is not a distribution. Real Firefox rendering, five guest-downloaded
-workload checksums, zero-image warm boots and update/reload file preservation
-passed. See the parent `docs/firefox-aurora-startup-20260926.md` for failures,
-recovery, artifact hashes and limitations. Public validation of this new rootfs
-is a separate release gate.
+The current rootfs version is `89ec54c81936`. This release changes only the
+Firefox archive and boot manifest: packed init no longer forces Bing on every
+launch, so saved Firefox startup preferences apply. The explicit profile path,
+Aurora readiness handshake, Firefox executable, kernel, plain image and worker
+graph inputs remain unchanged. Local actual-guest tests passed automatic saved
+homepage loading, typing, update/restart, exact preference/home-marker preservation,
+zero-image warm boot, and a fresh profile's New Tab and typed navigation. This
+packet does not establish a speedup ratio; see the parent
+`docs/firefox-homepage-20260926.md` for the observations and limitations. Public
+validation remains a separate release gate, and the previous saved Sites version
+is retained for rollback.
 
 ## Publication and limits
 
