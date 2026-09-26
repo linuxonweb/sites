@@ -48,25 +48,3 @@ test('unrecognized paths and mutation methods cannot reach upstream', async () =
   assert.equal((await proxy(new Request('https://linuxonweb.example/source/private'), rejectFetch)).status, 404);
   assert.equal((await proxy(new Request('https://linuxonweb.example/dns', { method: 'POST' }), rejectFetch)).status, 405);
 });
-
-test('reserved asset probe validates only the committed build marker without forwarding credentials', async () => {
-  const response = await worker.fetch(new Request('https://linuxonweb.example/__runtime-assets-probe-20260926', {
-    headers: { Cookie: 'hidden', Authorization: 'Bearer hidden' },
-  }), { ASSETS: { async fetch(request) {
-    assert.equal(request.url, 'https://linuxonweb.example/runtime-assets-probe-20260926.txt');
-    assert.equal(request.headers.get('Cookie'), null);
-    assert.equal(request.headers.get('Authorization'), null);
-    return new Response('linuxonweb-runtime-assets-probe-20260926-v1\n');
-  } } });
-  assert.equal(response.headers.get('Cache-Control'), 'no-store');
-  assert.deepEqual(await response.json(), { bindingAvailable: true, status: 200, buildId: 'linuxonweb-runtime-assets-probe-20260926-v1' });
-});
-
-test('reserved asset probe reports absent binding, failures and mismatched content without leaking data', async () => {
-  const request = () => new Request('https://linuxonweb.example/__runtime-assets-probe-20260926');
-  assert.deepEqual(await (await worker.fetch(request(), {})).json(), { bindingAvailable: false, status: null, buildId: null });
-  assert.deepEqual(await (await worker.fetch(request(), { ASSETS: { fetch() { throw new Error('private details'); } } })).json(), { bindingAvailable: true, status: 0, buildId: null });
-  assert.deepEqual(await (await worker.fetch(request(), { ASSETS: { fetch() { return new Response('unexpected private details'); } } })).json(), { bindingAvailable: true, status: 200, buildId: null });
-  assert.equal((await worker.fetch(new Request(request().url, { method: 'POST' }), {})).status, 405);
-  assert.equal((await worker.fetch(new Request('https://linuxonweb.example/__runtime-assets-probe-20260926/'), {})).status, 404);
-});

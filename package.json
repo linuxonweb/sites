@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "node build.mjs",
-    "test": "node --test worker.test.mjs"
+    "test": "node --test worker.test.mjs asset-handler.test.mjs",
+    "test:runtime": "node --test runtime.integration.test.mjs"
   },
   "engines": { "node": ">=22" }
 }

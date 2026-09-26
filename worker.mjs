@@ -1,3 +1,5 @@
+import runtimeAssets from './runtime-assets.mjs';
+import { handleAsset } from './asset-handler.mjs';
 // All runtime requests stay on the Sites origin, including the guest TCP bridge.
 export const UPSTREAM = 'https://linuxonweb.testcatty.workers.dev';
 const forwardedHeaders = new Set([
@@ -11,30 +13,6 @@ const isolation = {
   'Cross-Origin-Embedder-Policy': 'require-corp',
   'Cross-Origin-Resource-Policy': 'same-origin',
 };
-const ASSETS_PROBE_PATH = '/__runtime-assets-probe-20260926';
-const ASSETS_PROBE_FILE = '/runtime-assets-probe-20260926.txt';
-const ASSETS_PROBE_BUILD = 'linuxonweb-runtime-assets-probe-20260926-v1';
-
-async function assetsProbe(request, env) {
-  if (!['GET', 'HEAD'].includes(request.method)) return error('Method not allowed', 405);
-  const result = { bindingAvailable: typeof env?.ASSETS?.fetch === 'function', status: null, buildId: null };
-  if (result.bindingAvailable) {
-    try {
-      // A fresh request forwards no visitor headers or credentials. Only this
-      // fixed, committed probe file can be read; its body is never echoed.
-      const response = await env.ASSETS.fetch(new Request(new URL(ASSETS_PROBE_FILE, request.url)));
-      result.status = response.status;
-      if (response.status === 200 && (await response.text()).trim() === ASSETS_PROBE_BUILD) {
-        result.buildId = ASSETS_PROBE_BUILD;
-      } else {
-        await response.body?.cancel().catch(() => {});
-      }
-    } catch { result.status = 0; }
-  }
-  return new Response(request.method === 'HEAD' ? null : JSON.stringify(result), {
-    headers: { ...isolation, 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
-  });
-}
 
 function error(message, status) {
   return new Response(message, { status, headers: { ...isolation, 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store' } });
@@ -74,8 +52,12 @@ export async function proxy(request, upstreamFetch = fetch) {
 export default {
   async fetch(request, env) {
     try {
-      if (new URL(request.url).pathname === ASSETS_PROBE_PATH) return await assetsProbe(request, env);
-      return await proxy(request);
+      const path = new URL(request.url).pathname;
+      if (path === '/dns' || path === '/tcp' || path === '/__reload') return await proxy(request);
+      if (!['GET', 'HEAD'].includes(request.method)) return error('Method not allowed', 405);
+      const origin = request.headers.get('Origin');
+      if (origin && origin !== new URL(request.url).origin) return error('Cross-origin request forbidden', 403);
+      return await handleAsset(request, env, runtimeAssets);
     }
     catch { return error('Linux runtime temporarily unavailable', 502); }
   },
