@@ -4,7 +4,9 @@ import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
-import assets from './runtime-assets.mjs';
+import pinned from './runtime-assets.mjs';
+const assets=JSON.parse(await readFile(new URL('./dist/runtime-assets.json',import.meta.url)));
+const graph=JSON.parse(await readFile(new URL('./dist/worker-graph-build.json',import.meta.url)));
 
 // Validation only: use the parent's existing locked Miniflare dependency.
 const { Miniflare, convertV4MiniflareOptions } = createRequire(new URL('../cloudflare/package.json',import.meta.url))('miniflare');
@@ -28,14 +30,28 @@ function isolated(response){
   assert.equal(response.headers.get('Cross-Origin-Embedder-Policy'),'require-corp');
   assert.equal(response.headers.get('Cross-Origin-Resource-Policy'),'same-origin');
 }
-test('built Worker streams all 58 pinned routes with exact SHA/length and isolation',async()=>{
-  assert.equal(Object.keys(assets).length,58);
+test('built Worker streams all pinned and derived routes with exact SHA/length and isolation',async()=>{
+  for(const [path,entry]of Object.entries(pinned))if(path!=='/linux/dist/platform.js')assert.deepEqual(assets[path],entry,'accepted route changed: '+path);
   for(const [path,entry] of Object.entries(assets)){
     const response=await request(path);assert.equal(response.status,200,path);isolated(response);
     const hash=createHash('sha256');let size=0;
     for await(const bytes of response.body){hash.update(bytes);size+=bytes.byteLength;}
     assert.equal(size,entry.size,path);assert.equal(hash.digest('hex'),entry.sha256,path);
   }
+});
+test('worker graph is immutable while stable update paths revalidate',async()=>{
+  for(const path of Object.keys(graph.outputs)){
+    const response=await request(path+'?run=qa&firefox_diagnostics=1',{method:'HEAD'});assert.equal(response.status,200);isolated(response);
+    assert.equal(response.headers.get('Cache-Control'),path.startsWith(graph.prefix+'/')?'public, max-age=31536000, immutable':'public, max-age=0, must-revalidate');
+    assert.equal(response.headers.get('ETag'),'"'+assets[path].sha256+'"');
+  }
+  const platform=await(await request('/linux/dist/platform.js')).text();assert.ok(platform.includes(graph.prefix+'/linux/dist/worker.js'));
+  const versionedPlatform=await(await request(graph.prefix+'/linux/dist/platform.js')).text();assert.ok(versionedPlatform.includes("import('/linux/boot-assets.mjs')"));
+  const path=graph.prefix+'/linux/dist/worker.js';
+  const range=await request(path,{headers:{Range:'bytes=0-31'}});assert.equal(range.status,206);assert.equal((await range.arrayBuffer()).byteLength,32);isolated(range);
+  assert.equal((await request('/_runtime_worker/'+'0'.repeat(64)+'/linux/dist/worker.js')).status,404);
+  assert.equal((await request(graph.prefix+'/linux/dist/%2e%2e/private.js')).status,404);
+  for(const path of ['/linux/boot-assets.mjs','/linux/boot-manifest.json','/linux/main.js'])assert.equal((await request(path,{method:'HEAD'})).headers.get('Cache-Control'),'public, max-age=0, must-revalidate');
 });
 test('built Worker handles archive HEAD, cross-part range, ETag, root and missing routes',async()=>{
   const path='/linux/initramfs-firefox.cpio.gz',entry=assets[path];

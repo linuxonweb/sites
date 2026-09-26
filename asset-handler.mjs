@@ -120,7 +120,7 @@ export async function handleAsset(request, env, assets) {
   if (!entry) return assetReply('Not found', 404);
   const etag = `"${entry.sha256}"`;
   const headers = {
-    ...assetIsolation, 'Content-Type': entry.contentType, 'Cache-Control': 'public, max-age=0, must-revalidate',
+    ...assetIsolation, 'Content-Type': entry.contentType, 'Cache-Control': entry.immutable && /^\/_runtime_worker\/[a-f0-9]{64}\/linux\/dist\/[^/]+\.(?:m?js)$/.test(url.pathname) ? 'public, max-age=31536000, immutable' : 'public, max-age=0, must-revalidate',
     ETag: etag, 'Accept-Ranges': 'bytes', 'Content-Length': String(entry.size),
   };
   if (request.headers.get('If-None-Match')?.split(',').some(value => value.trim().replace(/^W\//, '') === etag || value.trim() === '*')) {

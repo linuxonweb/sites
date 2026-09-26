@@ -6,12 +6,44 @@ to `https://linuxonweb.testcatty.workers.dev`. No raw TCP implementation or
 `cloudflare:sockets` import was moved into Sites. Proxy origin checks, credential
 filtering, WebSocket forwarding and the public Sites hostname remain unchanged.
 
-Runtime routes retain their URLs, MIME types, byte lengths, SHA ETags,
+Accepted runtime routes retain their URLs, MIME types, SHA ETags,
 HEAD/range responses and COOP/COEP/CORP isolation. Files larger than 20 MiB use
 native streaming assembly. Missing local assets fail locally; they never fall
 back to an older upstream rootfs. Physical parts use opaque
 `/_runtime_assets/<sha256>.bin` paths, so logical routes pass through the Worker
 even on asset-first routers. The temporary capability probe is removed.
+The one derived stable module, `/linux/dist/platform.js`, selects the immutable
+worker graph described below; all other accepted runtime bytes stay identical.
+
+## Worker startup cache
+
+Creating each guest thread loads a browser Worker and its JavaScript module
+dependencies. Revalidating that graph on every spawn made the public console
+boot take 74.71 seconds versus 4.69 seconds locally, despite matching actual
+1 GiB/2 CPU configurations and virtually equal Wasm compile times. The measured
+cause and observer limitations are recorded in `worker-startup-evidence.md`.
+The derived build passes 10 unit and three workerd integration tests. Its lean
+local browser boot reaches the shell in 2.733 seconds with matching actual
+configuration and versioned worker requests; public performance acceptance is
+pending. The first candidate boot with intrusive worker hooks timed out, while
+the subsequent no-hook control passed; preserve both reports.
+
+`worker-graph.mjs` derives `/_runtime_worker/<graph-sha256>/linux/dist/*` from
+verified pinned inputs. It hashes sorted dependency paths and bytes, rejects
+unresolved/nonliteral imports, and rewrites exactly one worker URL expression
+in the stable platform module. No redirect or bundler is involved. Relative
+module imports stay in this namespace and receive a one-year immutable cache
+policy. The stable platform module and every other stable URL still revalidate.
+Wrong graph hashes and absent paths return 404 rather than serving current bytes
+under an old immutable identity. Worker diagnostic query parameters remain intact.
+
+The platform's lazy `boot-assets.mjs` import explicitly resolves to its stable
+URL, keeping system-manifest update checks live. Its input hash is also recorded
+in the graph identity. `dist/runtime-assets.json` and
+`dist/worker-graph-build.json` record the complete derived route hashes and input
+provenance. Future releases must retain old graph assets if they promise that
+old open tabs can create new workers after those tabs' cache entries are evicted;
+otherwise those tabs require a reload. Rollback restores the matching artifact.
 
 ## Pinned inputs and reproducible build
 
@@ -39,8 +71,10 @@ npm run test:runtime
 Node.js 22+ is required. Integration tests use the parent's already locked
 `web/cloudflare` Miniflare/workerd dependency; install it using that directory's
 package lock if absent. It is a test dependency, not a deployment dependency.
-The tests stream/hash all 58 routes from the actual built Worker and check a
-cross-part range, HEAD, ETag, isolation and missing-route behavior.
+The tests stream/hash every accepted and derived route from the actual built
+Worker, assert all accepted bytes except the reviewed platform rewrite remain
+unchanged, and check range, HEAD, ETag, immutable/stable policy, isolation and
+wrong-namespace behavior.
 
 Build verifies every pinned input and stages output before replacing `dist`.
 It deterministically concatenates the small first-party modules into one
