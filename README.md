@@ -32,3 +32,12 @@ The parent repository's source and guest images are not included in its pushes.
 Its runtime depends on the Cloudflare Worker remaining available; an update to
 that Worker updates the runtime served by this Site. Cloudflare outbound TCP
 restrictions and destination-site blocking apply to guest browsing.
+
+The runtime stores Linux home files, Firefox profiles, and downloads separately
+from verified cached boot images. Its storage panel can update and restart the
+system, clear cached images, or explicitly delete the home. Data belongs to
+this browser and origin; browser data clearing or eviction can remove it.
+Canvas2D remains the measured default framebuffer presenter, with optional
+WebGL/WebGPU presentation and fallback. Host presentation does not provide guest
+Vulkan/OpenGL, native Firefox JIT, or hardware video decoding. Experimental
+portable-interpreter builds remain isolated until their acceptance gates pass.
