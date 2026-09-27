@@ -51,15 +51,15 @@ otherwise those tabs require a reload. Rollback restores the matching artifact.
 ## Pinned inputs and reproducible build
 
 `runtime-assets.mjs` records all 58 logical routes. `runtime-lock.json` pins the
-55 staging parts (151,490,553 bytes), each SHA-256/length, the original manifest
+55 staging parts (151,597,037 bytes), each SHA-256/length, the original manifest
 and build-report hashes, and parent source commit
-`ff27c995b55944080ff3722fcd8ebbb8169a27b8`. Large guest binaries are external
+`82f91eaae30ef9c090ac7e072b88ffa13489aa58`. Large guest binaries are external
 locked build inputs, not silently copied from an unverified working tree.
 
 Required snapshot layout: `public/`, `generated/asset-manifest.mjs`, and
 `generated/build-report.json`. Preserve these exact inputs with release artifacts.
 The current local snapshot is
-`/mnt/p6/build/firefox-homepage-20260926/release-src/web/cloudflare`.
+`/mnt/p6/build/firefox-homepage-20260926/session-release-run1/release-src/web/cloudflare`.
 Reconstruction from the parent checkout is acceptable only when every locked
 hash matches. Missing inputs require recovering those bytes; ordinary builds
 never repin or substitute newer files.
@@ -89,17 +89,21 @@ For a reviewed new release, freeze staging first, then run
 its manifest and lock. The current helper deliberately requires this release's
 known counts. Do not repin merely to bypass a hash mismatch.
 
-The current rootfs version is `89ec54c81936`. This release changes only the
-Firefox archive and boot manifest: packed init no longer forces Bing on every
-launch, so saved Firefox startup preferences apply. The explicit profile path,
-Aurora readiness handshake, Firefox executable, kernel, plain image and worker
-graph inputs remain unchanged. Local actual-guest tests passed automatic saved
-homepage loading, typing, update/restart, exact preference/home-marker preservation,
-zero-image warm boot, and a fresh profile's New Tab and typed navigation. This
-packet does not establish a speedup ratio; see the parent
-`docs/firefox-homepage-20260926.md` for the observations and limitations. Public
-validation remains a separate release gate, and the previous saved Sites version
-is retained for rollback.
+The current rootfs version is `b354310fe03e`. This release changes only the
+Firefox archive and boot manifest. Firefox's initial tab now remains local when
+waiting for session data in this single-process Wasm build; the old remote-tab
+fallback left warm startup blank. Only the packed tabbrowser JS member changes.
+Init, saved preferences, Firefox executable, kernel, plain image and worker graph
+inputs remain unchanged. The earlier removal of the forced Bing URL is retained.
+Local actual-guest tests pass cold and automatic warm loading, typing and JS,
+zero-image warm boot, Update & restart, exact preference/home-marker preservation,
+and readback of an earlier download. The unmodified predecessor fails the same
+deterministic warm test. Its test profile suppresses a delayed first-run privacy
+tab; production privacy and crash-recovery preferences remain unchanged. There
+is no speedup-ratio or general multi-tab recovery claim. See the parent
+`docs/firefox-homepage-20260926.md` and `firefox-session-startup.json` evidence.
+Public validation remains a separate release gate; preceding saved versions are
+retained for rollback, including v7's documented failed warm/HTTPS checks.
 
 ## Publication and limits
 
