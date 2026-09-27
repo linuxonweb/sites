@@ -51,21 +51,21 @@ otherwise those tabs require a reload. Rollback restores the matching artifact.
 ## Pinned inputs and reproducible build
 
 `runtime-assets.mjs` records all 58 logical routes. `runtime-lock.json` pins the
-55 staging parts (151,597,037 bytes), each SHA-256/length, the original manifest
+55 staging parts (151,569,304 bytes), each SHA-256/length, the original manifest
 and build-report hashes, and parent source commit
-`82f91eaae30ef9c090ac7e072b88ffa13489aa58`. Large guest binaries are external
+`ae1648539f394d557ff067902599b002ec587c5d`. Large guest binaries are external
 locked build inputs, not silently copied from an unverified working tree.
 
 Required snapshot layout: `public/`, `generated/asset-manifest.mjs`, and
 `generated/build-report.json`. Preserve these exact inputs with release artifacts.
 The current local snapshot is
-`/mnt/p6/build/firefox-homepage-20260926/session-release-run1/release-src/web/cloudflare`.
+`/mnt/p6/build/firefox-tls-20260926/release-run1/release-src/web/cloudflare`.
 Reconstruction from the parent checkout is acceptable only when every locked
 hash matches. Missing inputs require recovering those bytes; ordinary builds
 never repin or substitute newer files.
 
 ```sh
-export TMPDIR=/mnt/p6/build/firefox-homepage-20260926/tmp
+export TMPDIR=/mnt/p6/build/firefox-tls-20260926/tmp
 export TMP="$TMPDIR" TEMP="$TMPDIR"
 npm test
 SITES_RUNTIME_INPUT=/path/to/reviewed-snapshot npm run build
@@ -89,21 +89,27 @@ For a reviewed new release, freeze staging first, then run
 its manifest and lock. The current helper deliberately requires this release's
 known counts. Do not repin merely to bypass a hash mismatch.
 
-The current rootfs version is `b354310fe03e`. This release changes only the
-Firefox archive and boot manifest. Firefox's initial tab now remains local when
-waiting for session data in this single-process Wasm build; the old remote-tab
-fallback left warm startup blank. Only the packed tabbrowser JS member changes.
-Init, saved preferences, Firefox executable, kernel, plain image and worker graph
-inputs remain unchanged. The earlier removal of the forced Bing URL is retained.
-Local actual-guest tests pass cold and automatic warm loading, typing and JS,
-zero-image warm boot, Update & restart, exact preference/home-marker preservation,
-and readback of an earlier download. The unmodified predecessor fails the same
-deterministic warm test. Its test profile suppresses a delayed first-run privacy
-tab; production privacy and crash-recovery preferences remain unchanged. There
-is no speedup-ratio or general multi-tab recovery claim. See the parent
-`docs/firefox-homepage-20260926.md` and `firefox-session-startup.json` evidence.
-Public validation remains a separate release gate; preceding saved versions are
-retained for rollback, including v7's documented failed warm/HTTPS checks.
+The pinned rootfs version is `29331a186e50`. This release changes only the
+Firefox archive and boot manifest. The Wasm NSS fallback now resumes missing
+CA trust records while retaining existing trust decisions, including explicit
+distrust. New profiles receive a prepared CA store containing no private or
+password-encryption keys; independent guest profiles generate distinct SDR keys.
+The seed builder securely deletes/vacuums diagnostic key material before packing.
+Only the Firefox module and two CA seed databases change inside the rootfs;
+11,467 other CPIO records, init, preferences, kernel, plain image and worker graph
+remain unchanged. Existing profile databases are preserved, with missing trust
+records repaired in place.
+
+Local actual-guest checks pass independent fresh-profile key isolation, cold/warm
+input and JavaScript, HTTPS Bing, zero-image warm boot, real Update & restart,
+old trust/key/home/download preservation, and rejection of a self-signed
+certificate. Valid/replay/invalid/recovery media checks verify software decoding
+and Web Audio delivery. These do not establish hardware decoding. The input
+fixture waits for an actual guest readiness download and suppresses automatic
+download-panel opening only in the test profile; earlier timing/focus failures
+remain documented. See parent `docs/firefox-tls-bootstrap-20260926.md` and
+`firefox-nss-seed-isolation.json` evidence. Public deployment acceptance remains
+required; keep v8 and earlier saved versions for rollback.
 
 ## Publication and limits
 
@@ -132,4 +138,4 @@ Home storage and caches remain browser-origin data. Canvas2D is the measured
 default, with optional host WebGL/WebGPU presentation. Guest native JIT,
 Vulkan/OpenGL and hardware decoding are not added by that presentation path.
 The PBL candidate was rejected after four of five workloads regressed;
-the accepted Firefox executable remains in this pinned snapshot.
+the executable retains the accepted interpreter and media fixes alongside the NSS repair.

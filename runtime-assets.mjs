@@ -112,11 +112,11 @@ export default {
   },
   "/linux/boot-manifest.json": {
     "size": 662,
-    "sha256": "0ed9798d39de4babed57c3ec3f4c46606a3a6a796430ab9a023b5813f196f9c9",
+    "sha256": "595c01ac6d0d0c3e67441eedc69dc0946a71a79c9b30ae7a7966f5169306e516",
     "contentType": "application/json",
     "parts": [
       {
-        "path": "/_runtime_assets/0ed9798d39de4babed57c3ec3f4c46606a3a6a796430ab9a023b5813f196f9c9.bin",
+        "path": "/_runtime_assets/595c01ac6d0d0c3e67441eedc69dc0946a71a79c9b30ae7a7966f5169306e516.bin",
         "size": 662
       }
     ]
@@ -408,29 +408,29 @@ export default {
     ]
   },
   "/linux/initramfs-firefox.cpio.gz": {
-    "size": 88406516,
-    "sha256": "9a651dee0be08e6a0ffe0b2ee5b49376310d57c9b66fe72fc58959034f4ef2a0",
+    "size": 88378783,
+    "sha256": "7bd5e9041d568c6b5b325abba16754d943a51b009c368c39901c0fb0a751508a",
     "contentType": "application/octet-stream",
     "parts": [
       {
-        "path": "/_runtime_assets/9fa48ee69c7003749266cf0e13889ab62d2777925b19526e9763995cb92dc8e4.bin",
+        "path": "/_runtime_assets/6ee6f894cbe31e2bc2fea3c73d075792e3db4ec6f17ccb7c89b54c3b501e90e6.bin",
         "size": 20971520
       },
       {
-        "path": "/_runtime_assets/531a2fca7d9e561ff3f435512bc19c58d72735b59f68d754cc9120f30f725cde.bin",
+        "path": "/_runtime_assets/170d749c7dcf7052686f4b3e44194fc4f9bf135727dd7326408e2f62949d3990.bin",
         "size": 20971520
       },
       {
-        "path": "/_runtime_assets/70ee9788d513c461707e57533df58ac6e4b3629edec5d0bfffde446ed7b35f16.bin",
+        "path": "/_runtime_assets/3f3a0dd397e2cee009bafb93314387d1c617e9c08b5888f6b857ca8aac939cca.bin",
         "size": 20971520
       },
       {
-        "path": "/_runtime_assets/9f88f1bc7c676cabca2402e00bdb22ff591b31540583502c892bed9e14302897.bin",
+        "path": "/_runtime_assets/19100abd35f1b84bed48a86db77a0d69c3cf190f60a1c919bb29fcbdb69b9690.bin",
         "size": 20971520
       },
       {
-        "path": "/_runtime_assets/4885f5116c477681bb2783ff0df8b23c74ea0f2e1614648c0726616e3c019fef.bin",
-        "size": 4520436
+        "path": "/_runtime_assets/7404e8cf796f787c5b235e29493974508838f0e7ecb5d6a21d8b6f8494137883.bin",
+        "size": 4492703
       }
     ]
   },

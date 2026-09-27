@@ -66,5 +66,5 @@ test('built Worker handles archive HEAD, cross-part range, ETag, root and missin
   assert.deepEqual(Buffer.from(await response.arrayBuffer()),Buffer.concat([first.subarray(first.length-32),second.subarray(0,32)]));
   const root=await request('/?check=1');assert.equal(root.status,302);assert.equal(root.headers.get('Location'),'/linux/index.html?check=1&firefox=1');isolated(root);
   for(const path of ['/linux/tests/guest-graphics.html','/__runtime-assets-probe-20260926','/source/private']){const response=await request(path);assert.equal(response.status,404,path);isolated(response);}
-  const manifest=await(await request('/linux/boot-manifest.json')).json();assert.equal(manifest.version,'b354310fe03e');
+  const manifest=await(await request('/linux/boot-manifest.json')).json();assert.equal(manifest.version,'29331a186e50');
 });

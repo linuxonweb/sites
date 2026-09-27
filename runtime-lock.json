@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "parentCommit": "82f91eaae30ef9c090ac7e072b88ffa13489aa58",
-  "stagedBytes": 151597037,
+  "parentCommit": "ae1648539f394d557ff067902599b002ec587c5d",
+  "stagedBytes": 151569304,
   "stagedFiles": 55,
   "routes": 58,
-  "runtimeManifestSHA256": "95cab3cc7b83038125c695e502a0a82d54d58c78fcee405ae703e685baafa982",
-  "inputManifestSHA256": "fddfd9e5dca04ed8dbc07d275ac50925c353dc796cf0f262a44171484cd7a57d",
-  "inputBuildReportSHA256": "f19f7695899d8bb92e35455eb070de99d7c829355df2e4316d62e1bd0ec2c9fd",
+  "runtimeManifestSHA256": "43aed2bd0b2572af8e3a02d2a0bb97df5107b6a8466e9a7f45284346902ce834",
+  "inputManifestSHA256": "aa87135d1bce2aadf558df96bc342227bbe3430f73bf3e323d3f480665774163",
+  "inputBuildReportSHA256": "e46ef42e283d001cc84dfd2f6336d53c7318da63c73fafeb491c2102d3a63ee6",
   "parts": [
     {
       "source": "/__chunks/3abcabf273287eada1663c5fc4baedc7f7e28b379c580b796cfebea0f531d1be/0",
@@ -21,34 +21,34 @@
       "sha256": "3e6ca78f37c6668d418d54d08b4a8348c1bd00dfcd0c0b6e0bd833a1afb4e9af"
     },
     {
-      "source": "/__chunks/9a651dee0be08e6a0ffe0b2ee5b49376310d57c9b66fe72fc58959034f4ef2a0/0",
-      "path": "/_runtime_assets/9fa48ee69c7003749266cf0e13889ab62d2777925b19526e9763995cb92dc8e4.bin",
+      "source": "/__chunks/7bd5e9041d568c6b5b325abba16754d943a51b009c368c39901c0fb0a751508a/0",
+      "path": "/_runtime_assets/6ee6f894cbe31e2bc2fea3c73d075792e3db4ec6f17ccb7c89b54c3b501e90e6.bin",
       "size": 20971520,
-      "sha256": "9fa48ee69c7003749266cf0e13889ab62d2777925b19526e9763995cb92dc8e4"
+      "sha256": "6ee6f894cbe31e2bc2fea3c73d075792e3db4ec6f17ccb7c89b54c3b501e90e6"
     },
     {
-      "source": "/__chunks/9a651dee0be08e6a0ffe0b2ee5b49376310d57c9b66fe72fc58959034f4ef2a0/1",
-      "path": "/_runtime_assets/531a2fca7d9e561ff3f435512bc19c58d72735b59f68d754cc9120f30f725cde.bin",
+      "source": "/__chunks/7bd5e9041d568c6b5b325abba16754d943a51b009c368c39901c0fb0a751508a/1",
+      "path": "/_runtime_assets/170d749c7dcf7052686f4b3e44194fc4f9bf135727dd7326408e2f62949d3990.bin",
       "size": 20971520,
-      "sha256": "531a2fca7d9e561ff3f435512bc19c58d72735b59f68d754cc9120f30f725cde"
+      "sha256": "170d749c7dcf7052686f4b3e44194fc4f9bf135727dd7326408e2f62949d3990"
     },
     {
-      "source": "/__chunks/9a651dee0be08e6a0ffe0b2ee5b49376310d57c9b66fe72fc58959034f4ef2a0/2",
-      "path": "/_runtime_assets/70ee9788d513c461707e57533df58ac6e4b3629edec5d0bfffde446ed7b35f16.bin",
+      "source": "/__chunks/7bd5e9041d568c6b5b325abba16754d943a51b009c368c39901c0fb0a751508a/2",
+      "path": "/_runtime_assets/3f3a0dd397e2cee009bafb93314387d1c617e9c08b5888f6b857ca8aac939cca.bin",
       "size": 20971520,
-      "sha256": "70ee9788d513c461707e57533df58ac6e4b3629edec5d0bfffde446ed7b35f16"
+      "sha256": "3f3a0dd397e2cee009bafb93314387d1c617e9c08b5888f6b857ca8aac939cca"
     },
     {
-      "source": "/__chunks/9a651dee0be08e6a0ffe0b2ee5b49376310d57c9b66fe72fc58959034f4ef2a0/3",
-      "path": "/_runtime_assets/9f88f1bc7c676cabca2402e00bdb22ff591b31540583502c892bed9e14302897.bin",
+      "source": "/__chunks/7bd5e9041d568c6b5b325abba16754d943a51b009c368c39901c0fb0a751508a/3",
+      "path": "/_runtime_assets/19100abd35f1b84bed48a86db77a0d69c3cf190f60a1c919bb29fcbdb69b9690.bin",
       "size": 20971520,
-      "sha256": "9f88f1bc7c676cabca2402e00bdb22ff591b31540583502c892bed9e14302897"
+      "sha256": "19100abd35f1b84bed48a86db77a0d69c3cf190f60a1c919bb29fcbdb69b9690"
     },
     {
-      "source": "/__chunks/9a651dee0be08e6a0ffe0b2ee5b49376310d57c9b66fe72fc58959034f4ef2a0/4",
-      "path": "/_runtime_assets/4885f5116c477681bb2783ff0df8b23c74ea0f2e1614648c0726616e3c019fef.bin",
-      "size": 4520436,
-      "sha256": "4885f5116c477681bb2783ff0df8b23c74ea0f2e1614648c0726616e3c019fef"
+      "source": "/__chunks/7bd5e9041d568c6b5b325abba16754d943a51b009c368c39901c0fb0a751508a/4",
+      "path": "/_runtime_assets/7404e8cf796f787c5b235e29493974508838f0e7ecb5d6a21d8b6f8494137883.bin",
+      "size": 4492703,
+      "sha256": "7404e8cf796f787c5b235e29493974508838f0e7ecb5d6a21d8b6f8494137883"
     },
     {
       "source": "/desktop/artifacts/aurora/aurora-wm.js",
@@ -112,9 +112,9 @@
     },
     {
       "source": "/linux/boot-manifest.json",
-      "path": "/_runtime_assets/0ed9798d39de4babed57c3ec3f4c46606a3a6a796430ab9a023b5813f196f9c9.bin",
+      "path": "/_runtime_assets/595c01ac6d0d0c3e67441eedc69dc0946a71a79c9b30ae7a7966f5169306e516.bin",
       "size": 662,
-      "sha256": "0ed9798d39de4babed57c3ec3f4c46606a3a6a796430ab9a023b5813f196f9c9"
+      "sha256": "595c01ac6d0d0c3e67441eedc69dc0946a71a79c9b30ae7a7966f5169306e516"
     },
     {
       "source": "/linux/dist/audio.js",
