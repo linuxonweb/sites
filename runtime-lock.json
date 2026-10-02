@@ -1,12 +1,1235 @@
 {
   "schema": 1,
-  "parentCommit": "ae1648539f394d557ff067902599b002ec587c5d",
-  "stagedBytes": 151569304,
-  "stagedFiles": 55,
-  "routes": 58,
-  "runtimeManifestSHA256": "43aed2bd0b2572af8e3a02d2a0bb97df5107b6a8466e9a7f45284346902ce834",
-  "inputManifestSHA256": "aa87135d1bce2aadf558df96bc342227bbe3430f73bf3e323d3f480665774163",
-  "inputBuildReportSHA256": "e46ef42e283d001cc84dfd2f6336d53c7318da63c73fafeb491c2102d3a63ee6",
+  "parentCommit": "772bb8cb78fadbfaf850e1e34691d710bfcad146",
+  "stagedBytes": 177996346,
+  "stagedFiles": 77,
+  "routes": 80,
+  "runtimeManifestSHA256": "662827a47e6bb2a2d0059f7aaec7c1b48614ffe5bff573373e89aad98c403855",
+  "inputManifestSHA256": "43757b988ca43e6a20d1d2a2fdb7916d4ba36e77acb2239ecc5fb820c5268375",
+  "inputBuildReportSHA256": "8f4e1f5cd1f165b4edc356718bf1d23b463b523a5a44ce0c80025177bd973e88",
+  "releaseProvenanceSHA256": "23da4d171eedd9c5f3ac6feebe5b5336d4c99c47eb0ea219c142181b9cf1e7c9",
+  "releaseProvenance": {
+    "schema": 1,
+    "parentCommit": "772bb8cb78fadbfaf850e1e34691d710bfcad146",
+    "auditSHA256": "03547e48db0560f8e0786eb46649535f91ecb1776da42dc1e15c92288f6b7ad1",
+    "helperSHA256": "ff7c380ca32e218880ad7558b61da5a59f215d12a213550e3c9c475286c5189c",
+    "approvedRoutes": [
+      "/desktop/artifacts/aurora/aurora-wm.js",
+      "/desktop/artifacts/aurora/aurora-wm.wasm",
+      "/desktop/artifacts/xvfb/Xvfb.data",
+      "/desktop/artifacts/xvfb/Xvfb.js",
+      "/desktop/artifacts/xvfb/Xvfb.wasm",
+      "/desktop/aurora-runner.js",
+      "/desktop/browser-posix-websocket.js",
+      "/desktop/index.html",
+      "/desktop/xvfb-runner.js",
+      "/linux/boot-assets.mjs",
+      "/linux/boot-manifest.json",
+      "/linux/dist/audio.js",
+      "/linux/dist/bytes.js",
+      "/linux/dist/devicetree.js",
+      "/linux/dist/firefox-callback-adapter.mjs",
+      "/linux/dist/firefox-callback-diagnostics.mjs",
+      "/linux/dist/firefox-webgpu-decoder.wasm",
+      "/linux/dist/framebuffer-presenter.js",
+      "/linux/dist/framebuffer.js",
+      "/linux/dist/guest-gpu-hostcall.js",
+      "/linux/dist/guest-gpu-owner.js",
+      "/linux/dist/guest-gpu-vk.js",
+      "/linux/dist/guest-gpu-wgpu.js",
+      "/linux/dist/guest-jit.js",
+      "/linux/dist/index.js",
+      "/linux/dist/network/gateway.js",
+      "/linux/dist/network/index.js",
+      "/linux/dist/network/ws-tcp.js",
+      "/linux/dist/platform.js",
+      "/linux/dist/user-memory-growth-adapter.js",
+      "/linux/dist/util.js",
+      "/linux/dist/virtio/block.js",
+      "/linux/dist/virtio/console.js",
+      "/linux/dist/virtio/core.js",
+      "/linux/dist/virtio/entropy.js",
+      "/linux/dist/virtio/fs.js",
+      "/linux/dist/virtio/input.js",
+      "/linux/dist/virtio/net.js",
+      "/linux/dist/virtio/vsock.js",
+      "/linux/dist/wasm.js",
+      "/linux/dist/wasm_binary.js",
+      "/linux/dist/worker.js",
+      "/linux/gpu/glsl.wasm",
+      "/linux/gpu/gputest-glgears.cpio",
+      "/linux/gpu/gputest-vkgears.cpio",
+      "/linux/gpu/gputest.cpio",
+      "/linux/gpu/wgsl.wasm",
+      "/linux/gputest.mjs",
+      "/linux/index.html",
+      "/linux/initramfs-firefox.cpio.gz",
+      "/linux/initramfs.cpio",
+      "/linux/keyboard.mjs",
+      "/linux/log-viewer.mjs",
+      "/linux/main.js",
+      "/linux/mobile-keyboard.mjs",
+      "/linux/node_modules/@xterm/addon-fit/lib/addon-fit.js",
+      "/linux/node_modules/@xterm/xterm/css/xterm.css",
+      "/linux/node_modules/@xterm/xterm/lib/xterm.js",
+      "/linux/persistent-home.mjs",
+      "/linux/storage-panel.mjs",
+      "/linux/tests/firefox-webgpu-decoder/decoder.mjs",
+      "/linux/tests/guest-gpu/host.mjs",
+      "/linux/tests/guest-vulkan-graphics/renderer.mjs",
+      "/linux/tests/guest-vulkan-graphics/translator/abi.mjs",
+      "/linux/tests/guest-vulkan-graphics/translator/index.mjs",
+      "/linux/tests/guest-vulkan-graphics/translator/worker.mjs",
+      "/linux/tests/guest-vulkan-webgl/renderer.mjs",
+      "/linux/tests/guest-vulkan-webgl/translator/abi.mjs",
+      "/linux/tests/guest-vulkan-webgl/translator/index.mjs",
+      "/linux/tests/guest-vulkan-webgl/translator/worker.mjs",
+      "/linux/touch-gesture.mjs",
+      "/linux/vmlinux.wasm",
+      "/upstream/aurora-runner.js",
+      "/upstream/aurora/aurora-wm.js",
+      "/upstream/aurora/aurora-wm.wasm",
+      "/upstream/browser-posix-websocket.js",
+      "/upstream/xvfb-runner.js",
+      "/upstream/xvfb/Xvfb.data",
+      "/upstream/xvfb/Xvfb.js",
+      "/upstream/xvfb/Xvfb.wasm"
+    ],
+    "aliases": {
+      "/upstream/xvfb/Xvfb.js": "/desktop/artifacts/xvfb/Xvfb.js",
+      "/upstream/xvfb/Xvfb.wasm": "/desktop/artifacts/xvfb/Xvfb.wasm",
+      "/upstream/xvfb/Xvfb.data": "/desktop/artifacts/xvfb/Xvfb.data",
+      "/upstream/aurora/aurora-wm.js": "/desktop/artifacts/aurora/aurora-wm.js",
+      "/upstream/aurora/aurora-wm.wasm": "/desktop/artifacts/aurora/aurora-wm.wasm",
+      "/upstream/browser-posix-websocket.js": "/desktop/browser-posix-websocket.js",
+      "/upstream/aurora-runner.js": "/desktop/aurora-runner.js",
+      "/upstream/xvfb-runner.js": "/desktop/xvfb-runner.js"
+    },
+    "counts": {
+      "sourceFiles": 72,
+      "routes": 80,
+      "stagedFiles": 77,
+      "stagedBytes": 177996346,
+      "sourceBytes": 177996346
+    },
+    "inputManifestSHA256": "43757b988ca43e6a20d1d2a2fdb7916d4ba36e77acb2239ecc5fb820c5268375",
+    "inputBuildReportSHA256": "8f4e1f5cd1f165b4edc356718bf1d23b463b523a5a44ce0c80025177bd973e88",
+    "bootManifest": {
+      "schema": 1,
+      "version": "ce0d881dec8c",
+      "assets": {
+        "kernel": {
+          "url": "./vmlinux.wasm",
+          "bytes": 6281750,
+          "sha256": "21c15250e6f27c95fef333a16ffbc411159838f194f0ea19f8adcda3f21b0e75",
+          "label": "Linux kernel"
+        },
+        "plain": {
+          "url": "./initramfs.cpio",
+          "bytes": 40495556,
+          "sha256": "3abcabf273287eada1663c5fc4baedc7f7e28b379c580b796cfebea0f531d1be",
+          "label": "Desktop system"
+        },
+        "firefox": {
+          "url": "./initramfs-firefox.cpio.gz",
+          "bytes": 88910833,
+          "sha256": "ce0d881dec8cea0728c5f513461f66de736c631c837e0e4c847cdf315c996745",
+          "label": "Firefox system"
+        }
+      }
+    },
+    "externalInputs": [],
+    "sources": [
+      {
+        "source": "web/desktop/artifacts/aurora/aurora-wm.js",
+        "path": "/desktop/artifacts/aurora/aurora-wm.js",
+        "external": false,
+        "size": 250061,
+        "sha256": "9a3a84c3a06259dcfc1b9994ab719e97b9019332524150c3b4bb6aafc655c3fe",
+        "gitBlobSHA1": "3fcc63c52766cecfc2c3359c32af230c38fadd46"
+      },
+      {
+        "source": "web/desktop/artifacts/aurora/aurora-wm.wasm",
+        "path": "/desktop/artifacts/aurora/aurora-wm.wasm",
+        "external": false,
+        "size": 8749181,
+        "sha256": "f88aee88f9aec58c5b47370d3a3da372fa9a9708b245d6e56eed64f31ff15566",
+        "gitBlobSHA1": "ee16f95ec35e99ef0d827a75d7966f7ca6717b6e"
+      },
+      {
+        "source": "web/desktop/artifacts/xvfb/Xvfb.data",
+        "path": "/desktop/artifacts/xvfb/Xvfb.data",
+        "external": false,
+        "size": 3345016,
+        "sha256": "ee1f4963cc56c99fbdebab6c269eb090f9edf47f90ce0a644218565330b9ac09",
+        "gitBlobSHA1": "4b217536c37a34cbc2feb609f5bfea218d216f3d"
+      },
+      {
+        "source": "web/desktop/artifacts/xvfb/Xvfb.js",
+        "path": "/desktop/artifacts/xvfb/Xvfb.js",
+        "external": false,
+        "size": 300974,
+        "sha256": "6fa52cffc16d987249b35be4131b9b2586adbc81d2126d8c91da3f31b538ca51",
+        "gitBlobSHA1": "2ac6f899840bad25cbe922eaad951a8883fd11b6"
+      },
+      {
+        "source": "web/desktop/artifacts/xvfb/Xvfb.wasm",
+        "path": "/desktop/artifacts/xvfb/Xvfb.wasm",
+        "external": false,
+        "size": 3100011,
+        "sha256": "fe86560c85c80847cb9d69fd675a72fe4fab66762fca56eb3013b1904ccb9319",
+        "gitBlobSHA1": "e7e51401e81ba905e84a52e746b0126e5b7f57ed"
+      },
+      {
+        "source": "web/desktop/aurora-runner.js",
+        "path": "/desktop/aurora-runner.js",
+        "external": false,
+        "size": 1602,
+        "sha256": "23f3f4e178cb396d36b29e822d00b64bfe168a5daf3e7a69032a16fcbdc7015c",
+        "gitBlobSHA1": "aef35d262739f3e3109abba910d14b3fbc546539"
+      },
+      {
+        "source": "web/desktop/browser-posix-websocket.js",
+        "path": "/desktop/browser-posix-websocket.js",
+        "external": false,
+        "size": 4819,
+        "sha256": "7c606d687dd9d671652dd17278e005942b12b1a9253aadebd1cc75d5c55848ba",
+        "gitBlobSHA1": "3a8ceadd997d19886faea9ba710f14b6459de63b"
+      },
+      {
+        "source": "web/desktop/index.html",
+        "path": "/desktop/index.html",
+        "external": false,
+        "size": 5104,
+        "sha256": "02298ea9356c7a6d51295c0d5047dcaa4548d6e1d369346d85749c250c8411dc",
+        "gitBlobSHA1": "4aa66baa68b365cf18a1878d703fc6d78c707768"
+      },
+      {
+        "source": "web/desktop/xvfb-runner.js",
+        "path": "/desktop/xvfb-runner.js",
+        "external": false,
+        "size": 762,
+        "sha256": "776e7b6bc9692bc2a1c35653c0bf3847303d209730dbd0cdef1bfa3cc95bf32e",
+        "gitBlobSHA1": "a378308c3a39dfdca9e0749ae41d02e5b59ba363"
+      },
+      {
+        "source": "web/linux/boot-assets.mjs",
+        "path": "/linux/boot-assets.mjs",
+        "external": false,
+        "size": 11006,
+        "sha256": "58c6ce8cc7b4ef2cf5b7983a277e347eee71553ff7d76497e97faa3fe1d3aa24",
+        "gitBlobSHA1": "8c0ccc84a914e7e32025f034db6f4edca6725ba8"
+      },
+      {
+        "source": "web/linux/boot-manifest.json",
+        "path": "/linux/boot-manifest.json",
+        "external": false,
+        "size": 662,
+        "sha256": "45098057be07cbebfa9a99fe03a0a44e9ed437e4c4f15b36a96b6e5f4b3ff3dd",
+        "gitBlobSHA1": "ec14332d6eed64cedc3051ec95c82934d878f2f5"
+      },
+      {
+        "source": "web/linux/dist/audio.js",
+        "path": "/linux/dist/audio.js",
+        "external": false,
+        "size": 6134,
+        "sha256": "b473743a8a19b90af923c5d358c773dc1d6c5e2cb7840e236a35ac8bf53f8ae6",
+        "gitBlobSHA1": "f75b725cd3fe0c9c52aa4c7c443d3b3b2ad4368f"
+      },
+      {
+        "source": "web/linux/dist/bytes.js",
+        "path": "/linux/dist/bytes.js",
+        "external": false,
+        "size": 7290,
+        "sha256": "692a3827bcfd8f2ac3a7ca728be7455b1666d3b525adbf21b7593c56dc85bbe5",
+        "gitBlobSHA1": "8cae3fcd03839004fd7ad5bb5621f90e86900617"
+      },
+      {
+        "source": "web/linux/dist/devicetree.js",
+        "path": "/linux/dist/devicetree.js",
+        "external": false,
+        "size": 5332,
+        "sha256": "6a5ac56197c61941ec40847c7145a2d5b7822bea9dda18a9663b0ed156461dba",
+        "gitBlobSHA1": "5dd1935471176be1efdb72467a80efcd4963fd11"
+      },
+      {
+        "source": "web/linux/dist/firefox-callback-adapter.mjs",
+        "path": "/linux/dist/firefox-callback-adapter.mjs",
+        "external": false,
+        "size": 6242,
+        "sha256": "c0d78a9f6408f135c80428652da7003dd1c90e4fc841ae99f6810346a66853a0",
+        "gitBlobSHA1": "ab38c53baf3fd3b76abfecd83554c07974871a9b"
+      },
+      {
+        "source": "web/linux/dist/firefox-callback-diagnostics.mjs",
+        "path": "/linux/dist/firefox-callback-diagnostics.mjs",
+        "external": false,
+        "size": 2018,
+        "sha256": "6a9c156ea70274dda35e17e460473e4181a5ef9312ac10662e3e3bb47326c925",
+        "gitBlobSHA1": "d0324a1890e9431cdda9f570497fa1a58031bd01"
+      },
+      {
+        "source": "web/linux/dist/firefox-webgpu-decoder.wasm",
+        "path": "/linux/dist/firefox-webgpu-decoder.wasm",
+        "external": false,
+        "size": 377315,
+        "sha256": "2f0c575b700a9220aea6365a60201f29600ff446c26eeeb78d703ccb11cd248e",
+        "gitBlobSHA1": "eac173b8e38a5690c4c0eeec64b4edb69257d834"
+      },
+      {
+        "source": "web/linux/dist/framebuffer-presenter.js",
+        "path": "/linux/dist/framebuffer-presenter.js",
+        "external": false,
+        "size": 7630,
+        "sha256": "dee266706c1d3feb7945a8e58ba646fa2f02006fea925d005e2b86f2aac2ad19",
+        "gitBlobSHA1": "bb3c1ca0b6544f0d7f1db366fb60c80a8be73932"
+      },
+      {
+        "source": "web/linux/dist/framebuffer.js",
+        "path": "/linux/dist/framebuffer.js",
+        "external": false,
+        "size": 9245,
+        "sha256": "a6885e16d4097d91c36182c3169fdc5b86012178fdd31af5e8fd5789683b9b84",
+        "gitBlobSHA1": "b6a97a98cbd9367e5d06c6a05802cb9a2569e123"
+      },
+      {
+        "source": "web/linux/dist/guest-gpu-hostcall.js",
+        "path": "/linux/dist/guest-gpu-hostcall.js",
+        "external": false,
+        "size": 20651,
+        "sha256": "4ccd94ae6cb8c2f2c6e81b7c1a6b99fb6639add1242b6ea78079c8bcda418397",
+        "gitBlobSHA1": "9a56029901b7a30d7ee6434634667f3224b3ca40"
+      },
+      {
+        "source": "web/linux/dist/guest-gpu-owner.js",
+        "path": "/linux/dist/guest-gpu-owner.js",
+        "external": false,
+        "size": 18399,
+        "sha256": "d0af51682702305b01c3942665959cb97ccfd22726e0fb73c077f1fa50b99456",
+        "gitBlobSHA1": "9c0b340b086d6bbd8d73b0fa978e4b5c02aaf945"
+      },
+      {
+        "source": "web/linux/dist/guest-gpu-vk.js",
+        "path": "/linux/dist/guest-gpu-vk.js",
+        "external": false,
+        "size": 8890,
+        "sha256": "b47b131d8a9087dfa5dc59490215bdc55a6b2fc8dcde879a9714031b38f739f6",
+        "gitBlobSHA1": "b04935f3dca89c75287d8855516f627a1addaea1"
+      },
+      {
+        "source": "web/linux/dist/guest-gpu-wgpu.js",
+        "path": "/linux/dist/guest-gpu-wgpu.js",
+        "external": false,
+        "size": 41304,
+        "sha256": "bc89607dd8c8da3357aae1b1e72a00f1b31e4e4243ff342689e8ce5dde7e41ea",
+        "gitBlobSHA1": "e26bf2918d4d41e65ce4e5ced334e5ad1894e17d"
+      },
+      {
+        "source": "web/linux/dist/guest-jit.js",
+        "path": "/linux/dist/guest-jit.js",
+        "external": false,
+        "size": 22472,
+        "sha256": "fc50f4af5232ce82054f81a90a9821742a457f471ac3911da1c01be72c4daad5",
+        "gitBlobSHA1": "f6c66f7328c5bcf09808c5245c51302252459280"
+      },
+      {
+        "source": "web/linux/dist/index.js",
+        "path": "/linux/dist/index.js",
+        "external": false,
+        "size": 18666,
+        "sha256": "910afb5af0b39d070e21087281e0b65ea73fb08dcccdfe6a11b0ac30cd8e70a8",
+        "gitBlobSHA1": "9c63fec072f793a2bac018d6bfefdfca549fb8cf"
+      },
+      {
+        "source": "web/linux/dist/network/gateway.js",
+        "path": "/linux/dist/network/gateway.js",
+        "external": false,
+        "size": 42698,
+        "sha256": "ff346b436e8e4aefeaeda0ab2b211958b93365e01cc2611f3b39a89bc09bf1ba",
+        "gitBlobSHA1": "77fa301cf66a3d2d01458dec5bb378c049ca859a"
+      },
+      {
+        "source": "web/linux/dist/network/index.js",
+        "path": "/linux/dist/network/index.js",
+        "external": false,
+        "size": 189,
+        "sha256": "e1aa93214acbe987abaf8a09f57651ceb975b7424c0122190231e1b32864db52",
+        "gitBlobSHA1": "158ca46aae812d8db4c20d37f443d28ba8d5dc76"
+      },
+      {
+        "source": "web/linux/dist/network/ws-tcp.js",
+        "path": "/linux/dist/network/ws-tcp.js",
+        "external": false,
+        "size": 4877,
+        "sha256": "5d2ca5f5aaa6974792cc4fa794d58053fd2e5185edbca2cd160eee5f2951b3f8",
+        "gitBlobSHA1": "09bbec4cb5379c81f9d6d005549fc2924f8dfa8f"
+      },
+      {
+        "source": "web/linux/dist/platform.js",
+        "path": "/linux/dist/platform.js",
+        "external": false,
+        "size": 5912,
+        "sha256": "8f0da1d12b136cf53ff06d0afb4bb1d1a13b705beaa029bb49c6812bd4069ce9",
+        "gitBlobSHA1": "10aae98dfc222dc8a046cfcc3f7ace830a20293d"
+      },
+      {
+        "source": "web/linux/dist/user-memory-growth-adapter.js",
+        "path": "/linux/dist/user-memory-growth-adapter.js",
+        "external": false,
+        "size": 4842,
+        "sha256": "7500739662e7abed6a99732f4321e2ec0865a2bc9d8c8816c633217dd48adf83",
+        "gitBlobSHA1": "b53704e6cce8236ce68b1263e80b185262591a61"
+      },
+      {
+        "source": "web/linux/dist/util.js",
+        "path": "/linux/dist/util.js",
+        "external": false,
+        "size": 244,
+        "sha256": "a0e8f06505b3b19943e233d72184475697cb02c12a07fd2cdc8508583f2b0c81",
+        "gitBlobSHA1": "af8df9d8bcaaf2bdf192c4522f2c32ea5ec73fa5"
+      },
+      {
+        "source": "web/linux/dist/virtio/block.js",
+        "path": "/linux/dist/virtio/block.js",
+        "external": false,
+        "size": 4335,
+        "sha256": "87af5551c38a6c1e786e585475fe296a240501d2ec07c120696252b17956ea4e",
+        "gitBlobSHA1": "cb73210c6019b788d9b796d384f6dcafd8f5671f"
+      },
+      {
+        "source": "web/linux/dist/virtio/console.js",
+        "path": "/linux/dist/virtio/console.js",
+        "external": false,
+        "size": 4813,
+        "sha256": "9de7ffef6f0396dcb4725fcc03a3205b8ecdee11af67adb136981d735b837ef5",
+        "gitBlobSHA1": "74825177dc7dd45aa22c88417b7891aabab32920"
+      },
+      {
+        "source": "web/linux/dist/virtio/core.js",
+        "path": "/linux/dist/virtio/core.js",
+        "external": false,
+        "size": 13386,
+        "sha256": "4a92a76da0701f506f5fa0368636ad340f92d3d06d335cc0a001d1d632305459",
+        "gitBlobSHA1": "5311915458bc6bdf3962615525f90310fc026ea1"
+      },
+      {
+        "source": "web/linux/dist/virtio/entropy.js",
+        "path": "/linux/dist/virtio/entropy.js",
+        "external": false,
+        "size": 817,
+        "sha256": "527ac8103305e0572e1c0f0598431966b6ef50eb4e32b4c8982d3fd83da8b484",
+        "gitBlobSHA1": "65199c2445fe2e5d1a77b6409864bcfac83674c1"
+      },
+      {
+        "source": "web/linux/dist/virtio/fs.js",
+        "path": "/linux/dist/virtio/fs.js",
+        "external": false,
+        "size": 36404,
+        "sha256": "b5ca9ac8f16b148c018738113fd221154e6809c755a3d7fcb8f7ed66251b4a6b",
+        "gitBlobSHA1": "1722c691e768cc5cd342daad6ed6bb3d88fde0dc"
+      },
+      {
+        "source": "web/linux/dist/virtio/input.js",
+        "path": "/linux/dist/virtio/input.js",
+        "external": false,
+        "size": 9878,
+        "sha256": "29c7d7df90b24747a4a2ab1cce1d1ef3696870d58fd65f44bd835e76e25051a1",
+        "gitBlobSHA1": "b4310f3273263291a0005796266e7e319e085051"
+      },
+      {
+        "source": "web/linux/dist/virtio/net.js",
+        "path": "/linux/dist/virtio/net.js",
+        "external": false,
+        "size": 6534,
+        "sha256": "87febbb9d02d0b3c047d97b92c9c2f1a6f3ecaa49f241358846f9d47bc8c9b83",
+        "gitBlobSHA1": "c647c8590c2873b19fb922f40d04cda86e1393c0"
+      },
+      {
+        "source": "web/linux/dist/virtio/vsock.js",
+        "path": "/linux/dist/virtio/vsock.js",
+        "external": false,
+        "size": 12220,
+        "sha256": "4c83483f6866165e5bc8a28b576cf0d17da7b59b31c0176d6a629a7a9d6d7ced",
+        "gitBlobSHA1": "d7e9ee028dd9f44d139bdb741bdf835282394961"
+      },
+      {
+        "source": "web/linux/dist/wasm_binary.js",
+        "path": "/linux/dist/wasm_binary.js",
+        "external": false,
+        "size": 7036,
+        "sha256": "247157bc8079ad2a8c905d5cd1b57ad55a4e7468e972cf2d7f58b6573651ecf5",
+        "gitBlobSHA1": "0d51beb63680cab537c47b694e319abbe1c9db08"
+      },
+      {
+        "source": "web/linux/dist/wasm.js",
+        "path": "/linux/dist/wasm.js",
+        "external": false,
+        "size": 6188,
+        "sha256": "536057f3e2df6bb68f209d9f380d8ea01e88e7c3d7611d6929d6fff2106abadf",
+        "gitBlobSHA1": "f80c9747cfbcdfedd51745da8f31f54db61e15d9"
+      },
+      {
+        "source": "web/linux/dist/worker.js",
+        "path": "/linux/dist/worker.js",
+        "external": false,
+        "size": 39985,
+        "sha256": "ad30668f547744509b912af4d982f91b49fd16cdd4b9bcb6a1e5ba6feb93a463",
+        "gitBlobSHA1": "67159710c5439ba78b92056cdca0ed2280a7885c"
+      },
+      {
+        "source": "web/linux/gpu/glsl.wasm",
+        "path": "/linux/gpu/glsl.wasm",
+        "external": false,
+        "size": 927118,
+        "sha256": "5bf9d0be09b14b2ffdf40efcc4fabf872b2717b658c87039c76ae51efc3740c5",
+        "gitBlobSHA1": "6bfcbcab6deddc23a7511661a8eb830349813bcd"
+      },
+      {
+        "source": "web/linux/gpu/gputest-glgears.cpio",
+        "path": "/linux/gpu/gputest-glgears.cpio",
+        "external": false,
+        "size": 20821504,
+        "sha256": "2f711c08b1ea474cab908f352daec8a2c8f6ab6647af89582180506285006e0a",
+        "gitBlobSHA1": "873adbb67ccb3c6f76641eb47ec847a81d493c3c"
+      },
+      {
+        "source": "web/linux/gpu/gputest-vkgears.cpio",
+        "path": "/linux/gpu/gputest-vkgears.cpio",
+        "external": false,
+        "size": 1332224,
+        "sha256": "e613ed9e099cce18a9894bc9fe0d1ad84ee72c94de590d0d182ad14e614e86fc",
+        "gitBlobSHA1": "f671af5df843e2e912b44a5c19e9eb081930cbfa"
+      },
+      {
+        "source": "web/linux/gpu/gputest.cpio",
+        "path": "/linux/gpu/gputest.cpio",
+        "external": false,
+        "size": 1316864,
+        "sha256": "1a65cf4b5430d3adabe3ee817b23313268a7915f277a316d2b47dba0d0b14fd7",
+        "gitBlobSHA1": "a99e90f7e4aa33657f4a91600dac965bac82cf1a"
+      },
+      {
+        "source": "web/linux/gpu/wgsl.wasm",
+        "path": "/linux/gpu/wgsl.wasm",
+        "external": false,
+        "size": 824092,
+        "sha256": "56b232004f08ae50381b6b8f68a0a9df521fa59ddfb1d1139c9c0dfcdcc2ebb2",
+        "gitBlobSHA1": "e8307fc75aa2b0082c256320cdca2472b66e77c0"
+      },
+      {
+        "source": "web/linux/gputest.mjs",
+        "path": "/linux/gputest.mjs",
+        "external": false,
+        "size": 8782,
+        "sha256": "7adfeffc38dd355eec9f136f28bd1f2ec6c5d528e1c2f883727e8697e847c30a",
+        "gitBlobSHA1": "ad1036462d6c02258c1fff76cbb8b1945c27c5d1"
+      },
+      {
+        "source": "web/linux/index.html",
+        "path": "/linux/index.html",
+        "external": false,
+        "size": 22119,
+        "sha256": "8fa4788049bffb71d00208815e7e7d0c93b2dc4b8f7ec407fa8f6c2ba889aeed",
+        "gitBlobSHA1": "3ba23664ab7d13d2e64cd7f38d061e5101f66fb7"
+      },
+      {
+        "source": "web/linux/initramfs-firefox.cpio.gz",
+        "path": "/linux/initramfs-firefox.cpio.gz",
+        "external": false,
+        "size": 88910833,
+        "sha256": "ce0d881dec8cea0728c5f513461f66de736c631c837e0e4c847cdf315c996745",
+        "gitBlobSHA1": "f39852eb1a9227ca27605ffb11ef3c7beeac11ca"
+      },
+      {
+        "source": "web/linux/initramfs.cpio",
+        "path": "/linux/initramfs.cpio",
+        "external": false,
+        "size": 40495556,
+        "sha256": "3abcabf273287eada1663c5fc4baedc7f7e28b379c580b796cfebea0f531d1be",
+        "gitBlobSHA1": "a7b23a78f03c89c80c2487d976d70b47dff2af8b"
+      },
+      {
+        "source": "web/linux/keyboard.mjs",
+        "path": "/linux/keyboard.mjs",
+        "external": false,
+        "size": 7039,
+        "sha256": "5e5ef3ab0e6af74fa489f80452f1f43b04c80d879e60e7b05ea18a042c8623bb",
+        "gitBlobSHA1": "c9a459a145665c6080085d9d657ef078ecea5a8a"
+      },
+      {
+        "source": "web/linux/log-viewer.mjs",
+        "path": "/linux/log-viewer.mjs",
+        "external": false,
+        "size": 6823,
+        "sha256": "648951414468548560de090134589bbcfb32b1131ad95e9f158d7d01b21b2a2b",
+        "gitBlobSHA1": "dab6134962ea7914c53c00b1bae9514824a6c53b"
+      },
+      {
+        "source": "web/linux/main.js",
+        "path": "/linux/main.js",
+        "external": false,
+        "size": 34051,
+        "sha256": "f634b3946a4a2d2af71c7998a62560d6bd8a1f94210f6929523ba91b6cde4c7f",
+        "gitBlobSHA1": "fcfc87c0a18237f63f3711eccb91b73b72d5420d"
+      },
+      {
+        "source": "web/linux/mobile-keyboard.mjs",
+        "path": "/linux/mobile-keyboard.mjs",
+        "external": false,
+        "size": 5930,
+        "sha256": "d57b85a89bf061cc66e831fdbc6b310e95c8bbeb19df36ff4f0e1a033ea017c2",
+        "gitBlobSHA1": "21d0e1f3b2bf91edcdb43cbe68766c0867572c60"
+      },
+      {
+        "source": "web/linux/node_modules/@xterm/addon-fit/lib/addon-fit.js",
+        "path": "/linux/node_modules/@xterm/addon-fit/lib/addon-fit.js",
+        "external": false,
+        "size": 1497,
+        "sha256": "bdaefa370b1bfc42ee88d46fe6072400902a4d4b2d45cd93438dda9b23c97089",
+        "gitBlobSHA1": "038897193db54dd0f09783d53e602755b93a2eaf"
+      },
+      {
+        "source": "web/linux/node_modules/@xterm/xterm/css/xterm.css",
+        "path": "/linux/node_modules/@xterm/xterm/css/xterm.css",
+        "external": false,
+        "size": 5559,
+        "sha256": "ba8e6985669488981ccf40c0cefe3aba80722cb6c92de7ad628b0bd717faf2b6",
+        "gitBlobSHA1": "e97b6439055da076119d8ce42225944623b80e9b"
+      },
+      {
+        "source": "web/linux/node_modules/@xterm/xterm/lib/xterm.js",
+        "path": "/linux/node_modules/@xterm/xterm/lib/xterm.js",
+        "external": false,
+        "size": 289441,
+        "sha256": "1f991ac3b4b283ebf96e60ae23a00a52765dd3a2e46fa6fdda9f1aab032f7495",
+        "gitBlobSHA1": "7ca75f8e5ec2a0741333130fd63fb9c79d9c2023"
+      },
+      {
+        "source": "web/linux/persistent-home.mjs",
+        "path": "/linux/persistent-home.mjs",
+        "external": false,
+        "size": 14996,
+        "sha256": "bf791f5dcd0e498b4050985a11c3893813acca0995ab95add627787eda161102",
+        "gitBlobSHA1": "d5d3c2bff76e786b3f66c5e8609ca0415ca46565"
+      },
+      {
+        "source": "web/linux/storage-panel.mjs",
+        "path": "/linux/storage-panel.mjs",
+        "external": false,
+        "size": 5627,
+        "sha256": "b221227e6a3ba8c456078eb200df4ec77c970ebf5fb13876de7928a19b7f3089",
+        "gitBlobSHA1": "1e98e204aab11ecc3004c184ace66d3adac2ec49"
+      },
+      {
+        "source": "web/linux/tests/firefox-webgpu-decoder/decoder.mjs",
+        "path": "/linux/tests/firefox-webgpu-decoder/decoder.mjs",
+        "external": false,
+        "size": 4851,
+        "sha256": "5fcf2a352aa830a51b185fe1b65a476aeed73ec3814b3819079de6e1ead42bba",
+        "gitBlobSHA1": "c99034808088260c41a50125ab6f6c36e6a8eb2b"
+      },
+      {
+        "source": "web/linux/tests/guest-gpu/host.mjs",
+        "path": "/linux/tests/guest-gpu/host.mjs",
+        "external": false,
+        "size": 36196,
+        "sha256": "06b74d69bfb2a57f53b06e91e0ed168f4ae4c40229332fca0428c20550b1d5da",
+        "gitBlobSHA1": "d4d14e617bfa1c5bf961406fcfd3aee8dafe7fd2"
+      },
+      {
+        "source": "web/linux/tests/guest-vulkan-graphics/renderer.mjs",
+        "path": "/linux/tests/guest-vulkan-graphics/renderer.mjs",
+        "external": false,
+        "size": 55897,
+        "sha256": "a985c76c8599144e6f2fa89cb7ddcb6f68169f37cc3505c404dc1fda2fee95d3",
+        "gitBlobSHA1": "b011811bffa2293bebe090e87e5bcc685e4ffdf2"
+      },
+      {
+        "source": "web/linux/tests/guest-vulkan-graphics/translator/abi.mjs",
+        "path": "/linux/tests/guest-vulkan-graphics/translator/abi.mjs",
+        "external": false,
+        "size": 4701,
+        "sha256": "7b75783608477c95abefc03356fd306084088a3b8d868b794bcc4172be4f8e5c",
+        "gitBlobSHA1": "7b638bc58760c41971f60e7e14bb287e97c31bae"
+      },
+      {
+        "source": "web/linux/tests/guest-vulkan-graphics/translator/index.mjs",
+        "path": "/linux/tests/guest-vulkan-graphics/translator/index.mjs",
+        "external": false,
+        "size": 3441,
+        "sha256": "2efd5613c60cf6aa3fec742950570e30be8acfa77aad19b374ef9bae2bd6db1e",
+        "gitBlobSHA1": "da67ffe6e651115adf15a23d7d6e7cd28c9f3630"
+      },
+      {
+        "source": "web/linux/tests/guest-vulkan-graphics/translator/worker.mjs",
+        "path": "/linux/tests/guest-vulkan-graphics/translator/worker.mjs",
+        "external": false,
+        "size": 1117,
+        "sha256": "0a289be10ff900c0d01d3c743a3637e8c1a4da5a7b3706842136d641ae75167e",
+        "gitBlobSHA1": "49920e01836e49fafbadd6179edb4c78ffcb6bec"
+      },
+      {
+        "source": "web/linux/tests/guest-vulkan-webgl/renderer.mjs",
+        "path": "/linux/tests/guest-vulkan-webgl/renderer.mjs",
+        "external": false,
+        "size": 43646,
+        "sha256": "9f0194a5d1a28d6650231c9962928717db524cf4a00e92e1c354ae8c6d7b636c",
+        "gitBlobSHA1": "e107ae137798a0d8ec526aaed721f2d358f0df11"
+      },
+      {
+        "source": "web/linux/tests/guest-vulkan-webgl/translator/abi.mjs",
+        "path": "/linux/tests/guest-vulkan-webgl/translator/abi.mjs",
+        "external": false,
+        "size": 6654,
+        "sha256": "a2bb9c21f9aaeb1ebffe454c15a322dab93a3a0c0ecdb6e7f42785c6e9b454fe",
+        "gitBlobSHA1": "ae6a88501164b84f63dce6b44a2807aadeed9476"
+      },
+      {
+        "source": "web/linux/tests/guest-vulkan-webgl/translator/index.mjs",
+        "path": "/linux/tests/guest-vulkan-webgl/translator/index.mjs",
+        "external": false,
+        "size": 3446,
+        "sha256": "94b9d44caa462493177d80d4ef08a1eb502c6c63c8f4d578a3dd4591e4dbe8a4",
+        "gitBlobSHA1": "cb4eb1f022fbbb47486e8fc399597e035758e818"
+      },
+      {
+        "source": "web/linux/tests/guest-vulkan-webgl/translator/worker.mjs",
+        "path": "/linux/tests/guest-vulkan-webgl/translator/worker.mjs",
+        "external": false,
+        "size": 1127,
+        "sha256": "291f367210e9dda9f05a2f17beaebc14680f2bd2db33dde863d39b72f2f28ef9",
+        "gitBlobSHA1": "0b00df9b43d0754060bf96b2792563955f2cc0d8"
+      },
+      {
+        "source": "web/linux/touch-gesture.mjs",
+        "path": "/linux/touch-gesture.mjs",
+        "external": false,
+        "size": 2321,
+        "sha256": "50f9119c2b638b49f045e9783aa3ded3eb4dc3d9fc9ecab599398626e36c3bc2",
+        "gitBlobSHA1": "acc0c9ad301c97535f1b78cf842823bc24856e38"
+      },
+      {
+        "source": "web/linux/vmlinux.wasm",
+        "path": "/linux/vmlinux.wasm",
+        "external": false,
+        "size": 6281750,
+        "sha256": "21c15250e6f27c95fef333a16ffbc411159838f194f0ea19f8adcda3f21b0e75",
+        "gitBlobSHA1": "00bc35d922a33433bdbf347940692c6ab55f2675"
+      }
+    ],
+    "dependencies": [
+      {
+        "from": "/linux/boot-assets.mjs",
+        "path": "/linux/boot-manifest.json",
+        "kind": "module-relative asset/worker URL"
+      },
+      {
+        "from": "/linux/dist/audio.js",
+        "path": "/linux/dist/wasm.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/bytes.js",
+        "path": "/linux/dist/util.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/devicetree.js",
+        "path": "/linux/dist/bytes.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/devicetree.js",
+        "path": "/linux/dist/util.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/framebuffer.js",
+        "path": "/linux/dist/wasm.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/framebuffer.js",
+        "path": "/linux/dist/framebuffer-presenter.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/guest-gpu-hostcall.js",
+        "path": "/linux/dist/guest-gpu-owner.js",
+        "kind": "module-relative asset/worker URL"
+      },
+      {
+        "from": "/linux/dist/guest-gpu-owner.js",
+        "path": "/linux/dist/guest-gpu-hostcall.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/guest-gpu-owner.js",
+        "path": "/linux/dist/guest-gpu-wgpu.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/guest-gpu-owner.js",
+        "path": "/linux/dist/guest-gpu-vk.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/guest-gpu-vk.js",
+        "path": "/linux/tests/guest-gpu/host.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/guest-gpu-vk.js",
+        "path": "/linux/gputest.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/guest-gpu-wgpu.js",
+        "path": "/linux/tests/firefox-webgpu-decoder/decoder.mjs",
+        "kind": "reviewed computed import"
+      },
+      {
+        "from": "/linux/dist/guest-gpu-wgpu.js",
+        "path": "/linux/dist/firefox-webgpu-decoder.wasm",
+        "kind": "module-relative asset/worker URL"
+      },
+      {
+        "from": "/linux/dist/index.js",
+        "path": "/linux/dist/audio.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/index.js",
+        "path": "/linux/dist/devicetree.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/index.js",
+        "path": "/linux/dist/platform.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/index.js",
+        "path": "/linux/dist/util.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/index.js",
+        "path": "/linux/dist/wasm_binary.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/index.js",
+        "path": "/linux/dist/virtio/core.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/index.js",
+        "path": "/linux/dist/wasm.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/index.js",
+        "path": "/linux/dist/framebuffer.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/index.js",
+        "path": "/linux/dist/guest-gpu-hostcall.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/index.js",
+        "path": "/linux/dist/virtio/core.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/index.js",
+        "path": "/linux/dist/virtio/block.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/index.js",
+        "path": "/linux/dist/virtio/console.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/index.js",
+        "path": "/linux/dist/virtio/entropy.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/index.js",
+        "path": "/linux/dist/virtio/fs.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/index.js",
+        "path": "/linux/dist/virtio/net.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/index.js",
+        "path": "/linux/dist/virtio/vsock.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/index.js",
+        "path": "/linux/dist/virtio/input.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/index.js",
+        "path": "/linux/dist/framebuffer.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/index.js",
+        "path": "/linux/dist/network/index.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/index.js",
+        "path": "/linux/vmlinux.wasm",
+        "kind": "module-relative asset/worker URL"
+      },
+      {
+        "from": "/linux/dist/network/gateway.js",
+        "path": "/linux/dist/virtio/net.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/network/gateway.js",
+        "path": "/linux/dist/bytes.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/network/index.js",
+        "path": "/linux/dist/network/gateway.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/network/index.js",
+        "path": "/linux/dist/network/ws-tcp.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/platform.js",
+        "path": "/linux/dist/util.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/platform.js",
+        "path": "/linux/boot-assets.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/block.js",
+        "path": "/linux/dist/bytes.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/block.js",
+        "path": "/linux/dist/util.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/block.js",
+        "path": "/linux/dist/virtio/core.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/console.js",
+        "path": "/linux/dist/bytes.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/console.js",
+        "path": "/linux/dist/util.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/console.js",
+        "path": "/linux/dist/virtio/core.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/core.js",
+        "path": "/linux/dist/bytes.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/core.js",
+        "path": "/linux/dist/util.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/entropy.js",
+        "path": "/linux/dist/util.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/entropy.js",
+        "path": "/linux/dist/virtio/core.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/fs.js",
+        "path": "/linux/dist/bytes.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/fs.js",
+        "path": "/linux/dist/virtio/core.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/input.js",
+        "path": "/linux/dist/bytes.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/input.js",
+        "path": "/linux/dist/util.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/input.js",
+        "path": "/linux/dist/virtio/core.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/net.js",
+        "path": "/linux/dist/bytes.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/net.js",
+        "path": "/linux/dist/util.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/net.js",
+        "path": "/linux/dist/virtio/core.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/vsock.js",
+        "path": "/linux/dist/bytes.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/vsock.js",
+        "path": "/linux/dist/util.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/virtio/vsock.js",
+        "path": "/linux/dist/virtio/core.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/wasm.js",
+        "path": "/linux/dist/platform.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/worker.js",
+        "path": "/linux/dist/audio.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/worker.js",
+        "path": "/linux/dist/platform.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/worker.js",
+        "path": "/linux/dist/util.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/worker.js",
+        "path": "/linux/dist/wasm_binary.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/worker.js",
+        "path": "/linux/dist/wasm.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/worker.js",
+        "path": "/linux/dist/user-memory-growth-adapter.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/worker.js",
+        "path": "/linux/dist/firefox-callback-adapter.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/worker.js",
+        "path": "/linux/dist/guest-jit.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/worker.js",
+        "path": "/linux/dist/guest-gpu-hostcall.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/gputest.mjs",
+        "path": "/linux/tests/guest-gpu/host.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/gputest.mjs",
+        "path": "/linux/gpu/gputest.cpio",
+        "kind": "module-relative asset/worker URL"
+      },
+      {
+        "from": "/linux/gputest.mjs",
+        "path": "/linux/gpu/wgsl.wasm",
+        "kind": "module-relative asset/worker URL"
+      },
+      {
+        "from": "/linux/gputest.mjs",
+        "path": "/linux/gpu/glsl.wasm",
+        "kind": "module-relative asset/worker URL"
+      },
+      {
+        "from": "/linux/gputest.mjs",
+        "path": "/linux/gpu/gputest-glgears.cpio",
+        "kind": "module-relative asset/worker URL"
+      },
+      {
+        "from": "/linux/gputest.mjs",
+        "path": "/linux/gpu/gputest-vkgears.cpio",
+        "kind": "module-relative asset/worker URL"
+      },
+      {
+        "from": "/linux/keyboard.mjs",
+        "path": "/linux/dist/virtio/input.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/main.js",
+        "path": "/linux/dist/index.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/main.js",
+        "path": "/linux/touch-gesture.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/main.js",
+        "path": "/linux/keyboard.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/main.js",
+        "path": "/linux/log-viewer.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/main.js",
+        "path": "/linux/mobile-keyboard.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/main.js",
+        "path": "/linux/persistent-home.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/main.js",
+        "path": "/linux/boot-assets.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/main.js",
+        "path": "/linux/storage-panel.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/main.js",
+        "path": "/linux/gputest.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/mobile-keyboard.mjs",
+        "path": "/linux/keyboard.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/persistent-home.mjs",
+        "path": "/linux/dist/virtio/fs.js",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/tests/guest-gpu/host.mjs",
+        "path": "/linux/tests/guest-vulkan-compute/translator/index.mjs",
+        "kind": "inactive: allowCompute=false"
+      },
+      {
+        "from": "/linux/tests/guest-gpu/host.mjs",
+        "path": "/linux/tests/guest-vulkan-webgl/translator/index.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/tests/guest-gpu/host.mjs",
+        "path": "/linux/tests/guest-vulkan-graphics/translator/index.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/tests/guest-gpu/host.mjs",
+        "path": "/linux/tests/guest-vulkan-webgl/renderer.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/tests/guest-gpu/host.mjs",
+        "path": "/linux/tests/guest-vulkan-graphics/renderer.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/tests/guest-vulkan-graphics/translator/index.mjs",
+        "path": "/linux/tests/guest-vulkan-graphics/translator/worker.mjs",
+        "kind": "module-relative asset/worker URL"
+      },
+      {
+        "from": "/linux/tests/guest-vulkan-graphics/translator/worker.mjs",
+        "path": "/linux/tests/guest-vulkan-graphics/translator/abi.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/tests/guest-vulkan-webgl/renderer.mjs",
+        "path": "/linux/tests/guest-vulkan-graphics/renderer.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/tests/guest-vulkan-webgl/translator/index.mjs",
+        "path": "/linux/tests/guest-vulkan-webgl/translator/worker.mjs",
+        "kind": "module-relative asset/worker URL"
+      },
+      {
+        "from": "/linux/tests/guest-vulkan-webgl/translator/worker.mjs",
+        "path": "/linux/tests/guest-vulkan-webgl/translator/abi.mjs",
+        "kind": "module import"
+      },
+      {
+        "from": "/linux/dist/platform.js",
+        "path": "/linux/dist/worker.js",
+        "kind": "reviewed kernel-worker constructor"
+      },
+      {
+        "from": "/linux/dist/guest-gpu-wgpu.js",
+        "path": "/linux/dist/firefox-webgpu-decoder.wasm",
+        "kind": "decoder binary fetch"
+      }
+    ]
+  },
   "parts": [
     {
       "source": "/__chunks/3abcabf273287eada1663c5fc4baedc7f7e28b379c580b796cfebea0f531d1be/0",
@@ -21,34 +1244,34 @@
       "sha256": "3e6ca78f37c6668d418d54d08b4a8348c1bd00dfcd0c0b6e0bd833a1afb4e9af"
     },
     {
-      "source": "/__chunks/7bd5e9041d568c6b5b325abba16754d943a51b009c368c39901c0fb0a751508a/0",
-      "path": "/_runtime_assets/6ee6f894cbe31e2bc2fea3c73d075792e3db4ec6f17ccb7c89b54c3b501e90e6.bin",
+      "source": "/__chunks/ce0d881dec8cea0728c5f513461f66de736c631c837e0e4c847cdf315c996745/0",
+      "path": "/_runtime_assets/5d51b7c36d5b1ea37974a9e9bc83a27140a5bb5a471d2b0ce205c6b43e3c3a8f.bin",
       "size": 20971520,
-      "sha256": "6ee6f894cbe31e2bc2fea3c73d075792e3db4ec6f17ccb7c89b54c3b501e90e6"
+      "sha256": "5d51b7c36d5b1ea37974a9e9bc83a27140a5bb5a471d2b0ce205c6b43e3c3a8f"
     },
     {
-      "source": "/__chunks/7bd5e9041d568c6b5b325abba16754d943a51b009c368c39901c0fb0a751508a/1",
-      "path": "/_runtime_assets/170d749c7dcf7052686f4b3e44194fc4f9bf135727dd7326408e2f62949d3990.bin",
+      "source": "/__chunks/ce0d881dec8cea0728c5f513461f66de736c631c837e0e4c847cdf315c996745/1",
+      "path": "/_runtime_assets/069b77b9965b1e992c647114cc37085da4b50c893ac22320b1fd6d210186d6b6.bin",
       "size": 20971520,
-      "sha256": "170d749c7dcf7052686f4b3e44194fc4f9bf135727dd7326408e2f62949d3990"
+      "sha256": "069b77b9965b1e992c647114cc37085da4b50c893ac22320b1fd6d210186d6b6"
     },
     {
-      "source": "/__chunks/7bd5e9041d568c6b5b325abba16754d943a51b009c368c39901c0fb0a751508a/2",
-      "path": "/_runtime_assets/3f3a0dd397e2cee009bafb93314387d1c617e9c08b5888f6b857ca8aac939cca.bin",
+      "source": "/__chunks/ce0d881dec8cea0728c5f513461f66de736c631c837e0e4c847cdf315c996745/2",
+      "path": "/_runtime_assets/81093e24c35fe63b3315a6727fd8a25ed0a78abba69efa4ace7f777f8c78c107.bin",
       "size": 20971520,
-      "sha256": "3f3a0dd397e2cee009bafb93314387d1c617e9c08b5888f6b857ca8aac939cca"
+      "sha256": "81093e24c35fe63b3315a6727fd8a25ed0a78abba69efa4ace7f777f8c78c107"
     },
     {
-      "source": "/__chunks/7bd5e9041d568c6b5b325abba16754d943a51b009c368c39901c0fb0a751508a/3",
-      "path": "/_runtime_assets/19100abd35f1b84bed48a86db77a0d69c3cf190f60a1c919bb29fcbdb69b9690.bin",
+      "source": "/__chunks/ce0d881dec8cea0728c5f513461f66de736c631c837e0e4c847cdf315c996745/3",
+      "path": "/_runtime_assets/90fac74132ab9f112a9f6defe5ecf580f6b6089b82579a107e845093ac11ecb4.bin",
       "size": 20971520,
-      "sha256": "19100abd35f1b84bed48a86db77a0d69c3cf190f60a1c919bb29fcbdb69b9690"
+      "sha256": "90fac74132ab9f112a9f6defe5ecf580f6b6089b82579a107e845093ac11ecb4"
     },
     {
-      "source": "/__chunks/7bd5e9041d568c6b5b325abba16754d943a51b009c368c39901c0fb0a751508a/4",
-      "path": "/_runtime_assets/7404e8cf796f787c5b235e29493974508838f0e7ecb5d6a21d8b6f8494137883.bin",
-      "size": 4492703,
-      "sha256": "7404e8cf796f787c5b235e29493974508838f0e7ecb5d6a21d8b6f8494137883"
+      "source": "/__chunks/ce0d881dec8cea0728c5f513461f66de736c631c837e0e4c847cdf315c996745/4",
+      "path": "/_runtime_assets/3651c7019dda1f44123f7681775fa13e4215ebb811e58bfd7d6ee26506ee59cd.bin",
+      "size": 5024753,
+      "sha256": "3651c7019dda1f44123f7681775fa13e4215ebb811e58bfd7d6ee26506ee59cd"
     },
     {
       "source": "/desktop/artifacts/aurora/aurora-wm.js",
@@ -112,9 +1335,9 @@
     },
     {
       "source": "/linux/boot-manifest.json",
-      "path": "/_runtime_assets/595c01ac6d0d0c3e67441eedc69dc0946a71a79c9b30ae7a7966f5169306e516.bin",
+      "path": "/_runtime_assets/45098057be07cbebfa9a99fe03a0a44e9ed437e4c4f15b36a96b6e5f4b3ff3dd.bin",
       "size": 662,
-      "sha256": "595c01ac6d0d0c3e67441eedc69dc0946a71a79c9b30ae7a7966f5169306e516"
+      "sha256": "45098057be07cbebfa9a99fe03a0a44e9ed437e4c4f15b36a96b6e5f4b3ff3dd"
     },
     {
       "source": "/linux/dist/audio.js",
@@ -147,6 +1370,12 @@
       "sha256": "6a9c156ea70274dda35e17e460473e4181a5ef9312ac10662e3e3bb47326c925"
     },
     {
+      "source": "/linux/dist/firefox-webgpu-decoder.wasm",
+      "path": "/_runtime_assets/2f0c575b700a9220aea6365a60201f29600ff446c26eeeb78d703ccb11cd248e.bin",
+      "size": 377315,
+      "sha256": "2f0c575b700a9220aea6365a60201f29600ff446c26eeeb78d703ccb11cd248e"
+    },
+    {
       "source": "/linux/dist/framebuffer-presenter.js",
       "path": "/_runtime_assets/dee266706c1d3feb7945a8e58ba646fa2f02006fea925d005e2b86f2aac2ad19.bin",
       "size": 7630,
@@ -159,10 +1388,40 @@
       "sha256": "a6885e16d4097d91c36182c3169fdc5b86012178fdd31af5e8fd5789683b9b84"
     },
     {
+      "source": "/linux/dist/guest-gpu-hostcall.js",
+      "path": "/_runtime_assets/4ccd94ae6cb8c2f2c6e81b7c1a6b99fb6639add1242b6ea78079c8bcda418397.bin",
+      "size": 20651,
+      "sha256": "4ccd94ae6cb8c2f2c6e81b7c1a6b99fb6639add1242b6ea78079c8bcda418397"
+    },
+    {
+      "source": "/linux/dist/guest-gpu-owner.js",
+      "path": "/_runtime_assets/d0af51682702305b01c3942665959cb97ccfd22726e0fb73c077f1fa50b99456.bin",
+      "size": 18399,
+      "sha256": "d0af51682702305b01c3942665959cb97ccfd22726e0fb73c077f1fa50b99456"
+    },
+    {
+      "source": "/linux/dist/guest-gpu-vk.js",
+      "path": "/_runtime_assets/b47b131d8a9087dfa5dc59490215bdc55a6b2fc8dcde879a9714031b38f739f6.bin",
+      "size": 8890,
+      "sha256": "b47b131d8a9087dfa5dc59490215bdc55a6b2fc8dcde879a9714031b38f739f6"
+    },
+    {
+      "source": "/linux/dist/guest-gpu-wgpu.js",
+      "path": "/_runtime_assets/bc89607dd8c8da3357aae1b1e72a00f1b31e4e4243ff342689e8ce5dde7e41ea.bin",
+      "size": 41304,
+      "sha256": "bc89607dd8c8da3357aae1b1e72a00f1b31e4e4243ff342689e8ce5dde7e41ea"
+    },
+    {
+      "source": "/linux/dist/guest-jit.js",
+      "path": "/_runtime_assets/fc50f4af5232ce82054f81a90a9821742a457f471ac3911da1c01be72c4daad5.bin",
+      "size": 22472,
+      "sha256": "fc50f4af5232ce82054f81a90a9821742a457f471ac3911da1c01be72c4daad5"
+    },
+    {
       "source": "/linux/dist/index.js",
-      "path": "/_runtime_assets/00045f632210df850e89a6ecfe9d61db030b26ed4eaeabfddf78f08d73e54c97.bin",
-      "size": 18161,
-      "sha256": "00045f632210df850e89a6ecfe9d61db030b26ed4eaeabfddf78f08d73e54c97"
+      "path": "/_runtime_assets/910afb5af0b39d070e21087281e0b65ea73fb08dcccdfe6a11b0ac30cd8e70a8.bin",
+      "size": 18666,
+      "sha256": "910afb5af0b39d070e21087281e0b65ea73fb08dcccdfe6a11b0ac30cd8e70a8"
     },
     {
       "source": "/linux/dist/network/gateway.js",
@@ -262,15 +1521,51 @@
     },
     {
       "source": "/linux/dist/worker.js",
-      "path": "/_runtime_assets/31b20da3c43ee73ff60a5dcc9644b52d6c3e2514468dd287d875433bdd47a034.bin",
-      "size": 37557,
-      "sha256": "31b20da3c43ee73ff60a5dcc9644b52d6c3e2514468dd287d875433bdd47a034"
+      "path": "/_runtime_assets/ad30668f547744509b912af4d982f91b49fd16cdd4b9bcb6a1e5ba6feb93a463.bin",
+      "size": 39985,
+      "sha256": "ad30668f547744509b912af4d982f91b49fd16cdd4b9bcb6a1e5ba6feb93a463"
+    },
+    {
+      "source": "/linux/gpu/glsl.wasm",
+      "path": "/_runtime_assets/5bf9d0be09b14b2ffdf40efcc4fabf872b2717b658c87039c76ae51efc3740c5.bin",
+      "size": 927118,
+      "sha256": "5bf9d0be09b14b2ffdf40efcc4fabf872b2717b658c87039c76ae51efc3740c5"
+    },
+    {
+      "source": "/linux/gpu/gputest-glgears.cpio",
+      "path": "/_runtime_assets/2f711c08b1ea474cab908f352daec8a2c8f6ab6647af89582180506285006e0a.bin",
+      "size": 20821504,
+      "sha256": "2f711c08b1ea474cab908f352daec8a2c8f6ab6647af89582180506285006e0a"
+    },
+    {
+      "source": "/linux/gpu/gputest-vkgears.cpio",
+      "path": "/_runtime_assets/e613ed9e099cce18a9894bc9fe0d1ad84ee72c94de590d0d182ad14e614e86fc.bin",
+      "size": 1332224,
+      "sha256": "e613ed9e099cce18a9894bc9fe0d1ad84ee72c94de590d0d182ad14e614e86fc"
+    },
+    {
+      "source": "/linux/gpu/gputest.cpio",
+      "path": "/_runtime_assets/1a65cf4b5430d3adabe3ee817b23313268a7915f277a316d2b47dba0d0b14fd7.bin",
+      "size": 1316864,
+      "sha256": "1a65cf4b5430d3adabe3ee817b23313268a7915f277a316d2b47dba0d0b14fd7"
+    },
+    {
+      "source": "/linux/gpu/wgsl.wasm",
+      "path": "/_runtime_assets/56b232004f08ae50381b6b8f68a0a9df521fa59ddfb1d1139c9c0dfcdcc2ebb2.bin",
+      "size": 824092,
+      "sha256": "56b232004f08ae50381b6b8f68a0a9df521fa59ddfb1d1139c9c0dfcdcc2ebb2"
+    },
+    {
+      "source": "/linux/gputest.mjs",
+      "path": "/_runtime_assets/7adfeffc38dd355eec9f136f28bd1f2ec6c5d528e1c2f883727e8697e847c30a.bin",
+      "size": 8782,
+      "sha256": "7adfeffc38dd355eec9f136f28bd1f2ec6c5d528e1c2f883727e8697e847c30a"
     },
     {
       "source": "/linux/index.html",
-      "path": "/_runtime_assets/91129cb5e5c70982b8bf579a4d61aa930321e3847bd6a43c7c6538caf448d334.bin",
-      "size": 16548,
-      "sha256": "91129cb5e5c70982b8bf579a4d61aa930321e3847bd6a43c7c6538caf448d334"
+      "path": "/_runtime_assets/8fa4788049bffb71d00208815e7e7d0c93b2dc4b8f7ec407fa8f6c2ba889aeed.bin",
+      "size": 22119,
+      "sha256": "8fa4788049bffb71d00208815e7e7d0c93b2dc4b8f7ec407fa8f6c2ba889aeed"
     },
     {
       "source": "/linux/keyboard.mjs",
@@ -280,21 +1575,21 @@
     },
     {
       "source": "/linux/log-viewer.mjs",
-      "path": "/_runtime_assets/a2938381a7192ff171e4c2b1c960b76df88c66e6dd081535e827ad9e833e80eb.bin",
-      "size": 6751,
-      "sha256": "a2938381a7192ff171e4c2b1c960b76df88c66e6dd081535e827ad9e833e80eb"
+      "path": "/_runtime_assets/648951414468548560de090134589bbcfb32b1131ad95e9f158d7d01b21b2a2b.bin",
+      "size": 6823,
+      "sha256": "648951414468548560de090134589bbcfb32b1131ad95e9f158d7d01b21b2a2b"
     },
     {
       "source": "/linux/main.js",
-      "path": "/_runtime_assets/6c8f2bf5bfd9932ef99a2f4e964144815a50ba179af079cfe82b9dcc8b7db53a.bin",
-      "size": 28398,
-      "sha256": "6c8f2bf5bfd9932ef99a2f4e964144815a50ba179af079cfe82b9dcc8b7db53a"
+      "path": "/_runtime_assets/f634b3946a4a2d2af71c7998a62560d6bd8a1f94210f6929523ba91b6cde4c7f.bin",
+      "size": 34051,
+      "sha256": "f634b3946a4a2d2af71c7998a62560d6bd8a1f94210f6929523ba91b6cde4c7f"
     },
     {
       "source": "/linux/mobile-keyboard.mjs",
-      "path": "/_runtime_assets/c5ce0b16142462aee3353af0cc0557f1dbeff9f2a5204675b94a0f6aea14a1a8.bin",
-      "size": 5858,
-      "sha256": "c5ce0b16142462aee3353af0cc0557f1dbeff9f2a5204675b94a0f6aea14a1a8"
+      "path": "/_runtime_assets/d57b85a89bf061cc66e831fdbc6b310e95c8bbeb19df36ff4f0e1a033ea017c2.bin",
+      "size": 5930,
+      "sha256": "d57b85a89bf061cc66e831fdbc6b310e95c8bbeb19df36ff4f0e1a033ea017c2"
     },
     {
       "source": "/linux/node_modules/@xterm/addon-fit/lib/addon-fit.js",
@@ -325,6 +1620,66 @@
       "path": "/_runtime_assets/b221227e6a3ba8c456078eb200df4ec77c970ebf5fb13876de7928a19b7f3089.bin",
       "size": 5627,
       "sha256": "b221227e6a3ba8c456078eb200df4ec77c970ebf5fb13876de7928a19b7f3089"
+    },
+    {
+      "source": "/linux/tests/firefox-webgpu-decoder/decoder.mjs",
+      "path": "/_runtime_assets/5fcf2a352aa830a51b185fe1b65a476aeed73ec3814b3819079de6e1ead42bba.bin",
+      "size": 4851,
+      "sha256": "5fcf2a352aa830a51b185fe1b65a476aeed73ec3814b3819079de6e1ead42bba"
+    },
+    {
+      "source": "/linux/tests/guest-gpu/host.mjs",
+      "path": "/_runtime_assets/06b74d69bfb2a57f53b06e91e0ed168f4ae4c40229332fca0428c20550b1d5da.bin",
+      "size": 36196,
+      "sha256": "06b74d69bfb2a57f53b06e91e0ed168f4ae4c40229332fca0428c20550b1d5da"
+    },
+    {
+      "source": "/linux/tests/guest-vulkan-graphics/renderer.mjs",
+      "path": "/_runtime_assets/a985c76c8599144e6f2fa89cb7ddcb6f68169f37cc3505c404dc1fda2fee95d3.bin",
+      "size": 55897,
+      "sha256": "a985c76c8599144e6f2fa89cb7ddcb6f68169f37cc3505c404dc1fda2fee95d3"
+    },
+    {
+      "source": "/linux/tests/guest-vulkan-graphics/translator/abi.mjs",
+      "path": "/_runtime_assets/7b75783608477c95abefc03356fd306084088a3b8d868b794bcc4172be4f8e5c.bin",
+      "size": 4701,
+      "sha256": "7b75783608477c95abefc03356fd306084088a3b8d868b794bcc4172be4f8e5c"
+    },
+    {
+      "source": "/linux/tests/guest-vulkan-graphics/translator/index.mjs",
+      "path": "/_runtime_assets/2efd5613c60cf6aa3fec742950570e30be8acfa77aad19b374ef9bae2bd6db1e.bin",
+      "size": 3441,
+      "sha256": "2efd5613c60cf6aa3fec742950570e30be8acfa77aad19b374ef9bae2bd6db1e"
+    },
+    {
+      "source": "/linux/tests/guest-vulkan-graphics/translator/worker.mjs",
+      "path": "/_runtime_assets/0a289be10ff900c0d01d3c743a3637e8c1a4da5a7b3706842136d641ae75167e.bin",
+      "size": 1117,
+      "sha256": "0a289be10ff900c0d01d3c743a3637e8c1a4da5a7b3706842136d641ae75167e"
+    },
+    {
+      "source": "/linux/tests/guest-vulkan-webgl/renderer.mjs",
+      "path": "/_runtime_assets/9f0194a5d1a28d6650231c9962928717db524cf4a00e92e1c354ae8c6d7b636c.bin",
+      "size": 43646,
+      "sha256": "9f0194a5d1a28d6650231c9962928717db524cf4a00e92e1c354ae8c6d7b636c"
+    },
+    {
+      "source": "/linux/tests/guest-vulkan-webgl/translator/abi.mjs",
+      "path": "/_runtime_assets/a2bb9c21f9aaeb1ebffe454c15a322dab93a3a0c0ecdb6e7f42785c6e9b454fe.bin",
+      "size": 6654,
+      "sha256": "a2bb9c21f9aaeb1ebffe454c15a322dab93a3a0c0ecdb6e7f42785c6e9b454fe"
+    },
+    {
+      "source": "/linux/tests/guest-vulkan-webgl/translator/index.mjs",
+      "path": "/_runtime_assets/94b9d44caa462493177d80d4ef08a1eb502c6c63c8f4d578a3dd4591e4dbe8a4.bin",
+      "size": 3446,
+      "sha256": "94b9d44caa462493177d80d4ef08a1eb502c6c63c8f4d578a3dd4591e4dbe8a4"
+    },
+    {
+      "source": "/linux/tests/guest-vulkan-webgl/translator/worker.mjs",
+      "path": "/_runtime_assets/291f367210e9dda9f05a2f17beaebc14680f2bd2db33dde863d39b72f2f28ef9.bin",
+      "size": 1127,
+      "sha256": "291f367210e9dda9f05a2f17beaebc14680f2bd2db33dde863d39b72f2f28ef9"
     },
     {
       "source": "/linux/touch-gesture.mjs",

@@ -50,7 +50,7 @@ otherwise those tabs require a reload. Rollback restores the matching artifact.
 
 ## Pinned inputs and reproducible build
 
-`runtime-assets.mjs` records all 58 logical routes. `runtime-lock.json` pins the
+The saved v9 `runtime-assets.mjs` records 58 logical routes. Its `runtime-lock.json` pins the
 55 staging parts (151,569,304 bytes), each SHA-256/length, the original manifest
 and build-report hashes, and parent source commit
 `ae1648539f394d557ff067902599b002ec587c5d`. Large guest binaries are external
@@ -58,7 +58,7 @@ locked build inputs, not silently copied from an unverified working tree.
 
 Required snapshot layout: `public/`, `generated/asset-manifest.mjs`, and
 `generated/build-report.json`. Preserve these exact inputs with release artifacts.
-The current local snapshot is
+The saved v9 local snapshot is
 `/mnt/p6/build/firefox-tls-20260926/release-run1/release-src/web/cloudflare`.
 Reconstruction from the parent checkout is acceptable only when every locked
 hash matches. Missing inputs require recovering those bytes; ordinary builds
@@ -84,12 +84,54 @@ wrong-namespace behavior.
 Build verifies every pinned input and stages output before replacing `dist`.
 It deterministically concatenates the small first-party modules into one
 `dist/server/index.js`, with no deployed relative or Node imports.
-For a reviewed new release, freeze staging first, then run
-`node pin-runtime.mjs SNAPSHOT_DIRECTORY FULL_PARENT_COMMIT` and review/commit
-its manifest and lock. The current helper deliberately requires this release's
-known counts. Do not repin merely to bypass a hash mismatch.
+For a reviewed new release, use the explicit `release-runtime.mjs` allowlist.
+It includes the production renderer/translator modules whose current paths are
+under `/linux/tests/`, while excluding fixture pages, runners, profiles, candidate
+archives and source/build trees. Both production GPU callers leave compute
+translation disabled; enabling it requires reviewing its additional closure.
+The helper audits static/lazy module imports and module-relative asset/Worker
+URLs, requires the selected working bytes to match the full root source commit,
+and verifies all boot-image and accepted translator hashes. It also requires
+the accepted Firefox 128 W3 decoder, SHA-256
+`2f0c575b700a9220aea6365a60201f29600ff446c26eeeb78d703ccb11cd248e` (377,315 bytes).
+If not yet shipped in the root commit, the only permitted external override is
+the explicitly pinned W3 build artifact; its path and hash enter provenance.
 
-The pinned rootfs version is `29331a186e50`. This release changes only the
+After root runtime acceptance and its source commit, prepare a fresh snapshot:
+
+```sh
+export TMPDIR=/mnt/p6/build/guest-jit-sites-20261002
+export TMP="$TMPDIR" TEMP="$TMPDIR"
+export SITES_RUNTIME_SOURCE=/mnt/p6/project/linux/linuxonweb
+node web/sites/release-runtime.mjs audit "$SITES_RUNTIME_SOURCE" FULL_ROOT_COMMIT "$TMPDIR/runtime-audit.json"
+node web/sites/release-runtime.mjs stage "$TMPDIR/runtime-audit.json" "$TMPDIR/runtime-snapshot"
+cd web/sites
+node pin-runtime.mjs "$TMPDIR/runtime-snapshot" FULL_ROOT_COMMIT "$TMPDIR/runtime-snapshot/generated/release-provenance.json"
+npm test
+```
+
+Review the audit and generated release provenance before pinning. The latter
+records exact routes, counts, source hashes, aliases, boot manifest, input
+metadata hashes, helper hash and external inputs. Pinning recomputes all part
+and logical hashes, checks its exact allowlist against that provenance, and
+retains the 20 MiB part limit. Counts are release-specific audited inputs;
+ordinary builds never repin. The new lock additionally hashes release provenance,
+which build verifies and preserves in `dist/release-provenance.json`.
+Do not repin merely to bypass a hash mismatch.
+
+Commit only the reviewed nested source files and regenerated lock/manifest.
+Build from that exact nested commit in a fresh checkout under the task's
+disk-backed scratch directory, with `SITES_RUNTIME_INPUT` pointing at the frozen
+snapshot and `SITES_RUNTIME_SOURCE` at the audited parent source checkout.
+Run unit, syntax and runtime integration checks; workerd and browser checks must
+wait for the exclusive guest validation lane to be released. Preserve the audit,
+staging snapshot, root/nested commit IDs, build output, archive SHA-256 and saved
+prior Sites version together. Only then package `.openai/hosting.json` and `dist`
+as described below. The helper never publishes, accesses credentials, modifies
+live runtime assets or reads browser profiles.
+
+Historical v9 acceptance: the pinned rootfs version was `29331a186e50`.
+That release changed only the
 Firefox archive and boot manifest. The Wasm NSS fallback now resumes missing
 CA trust records while retaining existing trust decisions, including explicit
 distrust. New profiles receive a prepared CA store containing no private or
@@ -100,7 +142,7 @@ Only the Firefox module and two CA seed databases change inside the rootfs;
 remain unchanged. Existing profile databases are preserved, with missing trust
 records repaired in place.
 
-Local actual-guest checks pass independent fresh-profile key isolation, cold/warm
+The historical v9 actual-guest checks passed independent fresh-profile key isolation, cold/warm
 input and JavaScript, HTTPS Bing, zero-image warm boot, real Update & restart,
 old trust/key/home/download preservation, and rejection of a self-signed
 certificate. Valid/replay/invalid/recovery media checks verify software decoding
@@ -131,11 +173,37 @@ Cloudflare backend and its outbound TCP restrictions.
 After authorized publication, verify actual `/linux/boot-manifest.json`
 version/hashes, full archive hashes, isolation, DNS/TCP/guest HTTPS and
 persistence on the unchanged origin. Retain the prior saved Sites version for
-rollback. Test fixtures, profile data, source trees and experimental PBL images
-are excluded from deployment output.
+rollback. Test fixture pages, profile data, source trees and experimental PBL
+images are excluded from deployment output. Specifically allowlisted production
+renderer/translator/decoder modules remain at their existing `/linux/tests/`
+URLs; directory names do not authorize including other test assets.
+
+The accepted successor runtime `ce0d881dec8c` adds Firefox's native Wasm loop
+JIT and ships the existing GPU runtime dependencies. Its Firefox archive is
+88,910,833 bytes, SHA-256
+`ce0d881dec8cea0728c5f513461f66de736c631c837e0e4c847cdf315c996745`.
+The original eight release cases meet their median-ratio bounds; startup,
+profile-preserving update and six-boot safety checks pass. The separately
+audited compound-array workload is about 72.36 times faster than the previous
+released runtime. Both comparisons against unpublished JIT7c retain FAIL
+status, including its 14.516% longer-duration slowdown and unresolved cause;
+the accepted release records this explicit engineering tradeoff. The original
+and follow-up evidence remains retained. Local promotion passes its final
+117-file evidence recheck. The committed boot manifest and hashed provenance
+bind the release to exact image bytes; publication and public guest acceptance
+remain separate gates. Sites v9 is the saved rollback version.
+
+The JIT specializes supported numeric, array, property and Math loops;
+other JavaScript continues through interpreter paths, with the reviewed
+exception-script fallback policy. Existing guest Vulkan/OpenGL support and
+the Firefox WebGPU decoder/executor groundwork ship as their current accepted
+dependencies. This release does not establish completed Firefox WebGPU
+canvas rendering or hardware video decoding. Public QA must close and reopen
+the profile and explicitly update/reload, preserving the existing old-tab
+worker-graph reload requirement.
 
 Home storage and caches remain browser-origin data. Canvas2D is the measured
 default, with optional host WebGL/WebGPU presentation. Guest native JIT,
 Vulkan/OpenGL and hardware decoding are not added by that presentation path.
-The PBL candidate was rejected after four of five workloads regressed;
-the executable retains the accepted interpreter and media fixes alongside the NSS repair.
+The historical PBL candidate was rejected after four of five workloads regressed;
+the v9 executable retained the accepted interpreter and media fixes alongside the NSS repair.

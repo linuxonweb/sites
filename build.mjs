@@ -15,6 +15,14 @@ if (lock.schema!==1 || hash(manifest)!==lock.runtimeManifestSHA256) throw new Er
 for (const [path,sha] of [['asset-manifest.mjs',lock.inputManifestSHA256],['build-report.json',lock.inputBuildReportSHA256]]) {
   if(hash(await readFile(join(snapshot,'generated',path)))!==sha)throw new Error('pinned metadata mismatch: '+path);
 }
+if(lock.releaseProvenanceSHA256){
+  const bytes=await readFile(join(snapshot,'generated/release-provenance.json'));
+  if(hash(bytes)!==lock.releaseProvenanceSHA256||JSON.stringify(JSON.parse(bytes))!==JSON.stringify(lock.releaseProvenance)||
+    lock.releaseProvenance.parentCommit!==lock.parentCommit||
+    JSON.stringify(Object.keys(pinnedAssets).sort())!==JSON.stringify(lock.releaseProvenance.approvedRoutes))throw new Error('pinned release provenance mismatch');
+}
+if(Object.keys(pinnedAssets).length!==lock.routes||lock.parts.length!==lock.stagedFiles||
+  lock.parts.reduce((n,p)=>n+p.size,0)!==lock.stagedBytes)throw new Error('pinned release counts mismatch');
 await rm(temporary,{recursive:true,force:true});
 for(const directory of ['server','client','client/_runtime_assets','.openai'])await mkdir(join(temporary,directory),{recursive:true});
 let bytesCopied=0;
@@ -30,6 +38,7 @@ try {
   for(const [path,bytes]of derived.parts){if(!copied.has(path)){await writeFile(join(temporary,'client',path),bytes);copied.add(path);bytesCopied+=bytes.length;}}
   await writeFile(join(temporary,'runtime-assets.json'),JSON.stringify(derived.assets,null,2)+'\n');
   await writeFile(join(temporary,'worker-graph-build.json'),JSON.stringify({...derived.metadata,parentCommit:lock.parentCommit,inputManifestSHA256:lock.runtimeManifestSHA256},null,2)+'\n');
+  if(lock.releaseProvenance)await writeFile(join(temporary,'release-provenance.json'),JSON.stringify(lock.releaseProvenance,null,2)+'\n');
   const assetCode=(await readFile(join(root,'asset-handler.mjs'),'utf8')).replace(/^export /gm,'');
   const worker=(await readFile(join(root,'worker.mjs'),'utf8')).replace(/^import .* from '\.\/(?:asset-handler|runtime-assets)\.mjs';\n/gm,'').replace(/^export (?!default\b)/gm,'');
   await writeFile(join(temporary,'server/index.js'),'const runtimeAssets = '+JSON.stringify(derived.assets)+';\n'+assetCode+'\n'+worker);
