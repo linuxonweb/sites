@@ -14,7 +14,7 @@ export const decoderInput = Object.freeze({
 const linux = [
   'index.html', 'main.js', 'keyboard.mjs', 'mobile-keyboard.mjs', 'touch-gesture.mjs',
   'log-viewer.mjs', 'persistent-home.mjs', 'boot-assets.mjs', 'boot-manifest.json',
-  'storage-panel.mjs', 'gputest.mjs', 'vmlinux.wasm', 'initramfs.cpio', 'initramfs-firefox.cpio.gz',
+  'storage-panel.mjs', 'gputest.mjs', 'guest-gpu-config.mjs', 'vmlinux.wasm', 'initramfs.cpio', 'initramfs-firefox.cpio.gz',
   'node_modules/@xterm/xterm/css/xterm.css', 'node_modules/@xterm/xterm/lib/xterm.js',
   'node_modules/@xterm/addon-fit/lib/addon-fit.js',
   'dist/audio.js', 'dist/bytes.js', 'dist/devicetree.js', 'dist/firefox-callback-adapter.mjs',
@@ -26,6 +26,9 @@ const linux = [
   'dist/virtio/block.js', 'dist/virtio/console.js', 'dist/virtio/core.js', 'dist/virtio/entropy.js',
   'dist/virtio/fs.js', 'dist/virtio/input.js', 'dist/virtio/net.js', 'dist/virtio/vsock.js',
   'gpu/wgsl.wasm', 'gpu/glsl.wasm', 'gpu/gputest.cpio', 'gpu/gputest-glgears.cpio', 'gpu/gputest-vkgears.cpio',
+  'gpu-runtime/v1/bridge.mjs', 'gpu-runtime/v1/graphics-renderer.mjs',
+  'gpu-runtime/v1/guest_vulkan_wgpu_host.js', 'gpu-runtime/v1/guest_vulkan_wgpu_host_bg.wasm',
+  'gpu-runtime/v1/provenance.json', 'gpu-runtime/v1/THIRD-PARTY-NOTICES.txt',
   // These runtime modules happen to live under tests. No fixture pages, runners,
   // candidate directories, shader sources, profiles, or build trees are allowed.
   'tests/guest-gpu/host.mjs',
